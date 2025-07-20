@@ -54,12 +54,12 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             onClick={() => navigateToPage('home')}
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <div className="bg-teal-600 p-2 rounded-full">
+            <div className="bg-blue-600 p-2 rounded-lg">
               <Stethoscope className="h-6 w-6 text-white" />
             </div>
             <div>
               <h1 className="text-xl font-bold text-gray-800">Dr. Karthick Palanisamy</h1>
-              <p className="text-sm text-teal-600">Diabetes Care & Podiatry Expert</p>
+              <p className="text-sm text-blue-600">Diabetes Care & Podiatry Expert</p>
             </div>
           </button>
 
@@ -67,13 +67,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => navigateToPage('home')}
-              className={`transition-colors ${currentPage === 'home' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+              className={`transition-colors ${currentPage === 'home' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               Home
             </button>
             <button 
               onClick={() => navigateToPage('about-page')}
-              className={`transition-colors ${currentPage === 'about-page' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+              className={`transition-colors ${currentPage === 'about-page' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               About Dr. Karthick
             </button>
@@ -85,17 +85,17 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               onMouseLeave={() => setIsServicesDropdownOpen(false)}
             >
               <button 
-                className="flex items-center space-x-1 text-gray-700 hover:text-teal-600 transition-colors"
+                className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
               >
                 <span>Services</span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
               {isServicesDropdownOpen && (
-                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-xl border border-gray-200 py-2 z-50">
+                <div className="absolute top-full left-0 mt-2 w-64 bg-white rounded-lg shadow-lg border border-gray-200 py-2 z-50">
                   <button 
                     onClick={() => scrollToSection('services')}
-                    className="w-full text-left px-4 py-3 text-gray-700 hover:bg-teal-50 hover:text-teal-600 transition-colors border-b border-gray-100"
+                    className="w-full text-left px-4 py-3 text-gray-700 hover:bg-blue-50 hover:text-blue-600 transition-colors border-b border-gray-100"
                   >
                     <div className="font-semibold">All Services</div>
                     <div className="text-sm text-gray-500">View complete service overview</div>
@@ -106,8 +106,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                       onClick={() => navigateToPage(service.page)}
                       className={`w-full text-left px-4 py-3 transition-colors ${
                         currentPage === service.page 
-                          ? 'bg-teal-50 text-teal-600 font-semibold' 
-                          : 'text-gray-700 hover:bg-teal-50 hover:text-teal-600'
+                          ? 'bg-blue-50 text-blue-600 font-semibold' 
+                          : 'text-gray-700 hover:bg-blue-50 hover:text-blue-600'
                       }`}
                     >
                       {service.name}
@@ -119,19 +119,19 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             
             <button 
               onClick={() => navigateToPage('patient-resources')}
-              className={`transition-colors ${currentPage === 'patient-resources' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+              className={`transition-colors ${currentPage === 'patient-resources' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               Patient Resources
             </button>
             <button 
               onClick={() => navigateToPage('contact-us')}
-              className={`transition-colors ${currentPage === 'contact-us' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+              className={`transition-colors ${currentPage === 'contact-us' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               Contact Us
             </button>
             <button 
               onClick={() => navigateToPage('book-appointment')}
-              className="bg-teal-600 text-white px-6 py-2 rounded-full hover:bg-teal-700 transition-colors flex items-center space-x-2"
+              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
             >
               <Calendar className="h-4 w-4" />
               <span>Book Appointment</span>
@@ -153,23 +153,23 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             <div className="flex flex-col space-y-4">
               <button 
                 onClick={() => navigateToPage('home')}
-                className={`transition-colors text-left ${currentPage === 'home' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+                className={`transition-colors text-left ${currentPage === 'home' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
               >
                 Home
               </button>
               <button 
                 onClick={() => navigateToPage('about-page')}
-                className={`transition-colors text-left ${currentPage === 'about-page' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+                className={`transition-colors text-left ${currentPage === 'about-page' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
               >
                 About Dr. Karthick
               </button>
               
               {/* Mobile Services Section */}
-              <div className="border-l-2 border-teal-200 pl-4">
+              <div className="border-l-2 border-blue-200 pl-4">
                 <div className="text-gray-800 font-semibold mb-2">Services</div>
                 <button 
                   onClick={() => scrollToSection('services')}
-                  className="block text-gray-600 hover:text-teal-600 transition-colors text-left mb-2 text-sm"
+                  className="block text-gray-600 hover:text-blue-600 transition-colors text-left mb-2 text-sm"
                 >
                   All Services Overview
                 </button>
@@ -179,8 +179,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                     onClick={() => navigateToPage(service.page)}
                     className={`block transition-colors text-left mb-2 text-sm ${
                       currentPage === service.page 
-                        ? 'text-teal-600 font-semibold' 
-                        : 'text-gray-600 hover:text-teal-600'
+                        ? 'text-blue-600 font-semibold' 
+                        : 'text-gray-600 hover:text-blue-600'
                     }`}
                   >
                     {service.name}
@@ -190,19 +190,19 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               
               <button 
                 onClick={() => navigateToPage('patient-resources')}
-                className={`transition-colors text-left ${currentPage === 'patient-resources' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+                className={`transition-colors text-left ${currentPage === 'patient-resources' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
               >
                 Patient Resources
               </button>
               <button 
                 onClick={() => navigateToPage('contact-us')}
-                className={`transition-colors text-left ${currentPage === 'contact-us' ? 'text-teal-600 font-semibold' : 'text-gray-700 hover:text-teal-600'}`}
+                className={`transition-colors text-left ${currentPage === 'contact-us' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
               >
                 Contact Us
               </button>
               <button 
                 onClick={() => navigateToPage('book-appointment')}
-                className="bg-teal-600 text-white px-6 py-3 rounded-full hover:bg-teal-700 transition-colors flex items-center justify-center space-x-2"
+                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
               >
                 <Calendar className="h-4 w-4" />
                 <span>Book Appointment</span>

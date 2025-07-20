@@ -29,8 +29,8 @@ const About = () => {
             
             <div className="space-y-6">
               <div className="flex items-start space-x-4">
-                <div className="bg-teal-100 p-3 rounded-full flex-shrink-0">
-                  <GraduationCap className="h-6 w-6 text-teal-600" />
+                <div className="bg-blue-100 p-3 rounded-lg flex-shrink-0">
+                  <GraduationCap className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Educational Background</h4>
@@ -39,8 +39,8 @@ const About = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-blue-100 p-3 rounded-full flex-shrink-0">
-                  <Award className="h-6 w-6 text-blue-600" />
+                <div className="bg-gray-100 p-3 rounded-lg flex-shrink-0">
+                  <Award className="h-6 w-6 text-gray-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Areas of Specialization</h4>
@@ -54,8 +54,8 @@ const About = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-green-100 p-3 rounded-full flex-shrink-0">
-                  <Users className="h-6 w-6 text-green-600" />
+                <div className="bg-blue-50 p-3 rounded-lg flex-shrink-0">
+                  <Users className="h-6 w-6 text-blue-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Research Interests</h4>
@@ -64,8 +64,8 @@ const About = () => {
               </div>
               
               <div className="flex items-start space-x-4">
-                <div className="bg-red-100 p-3 rounded-full flex-shrink-0">
-                  <Heart className="h-6 w-6 text-red-600" />
+                <div className="bg-gray-100 p-3 rounded-lg flex-shrink-0">
+                  <Heart className="h-6 w-6 text-gray-600" />
                 </div>
                 <div>
                   <h4 className="font-bold text-gray-800 mb-2">Patient Philosophy</h4>

@@ -18,7 +18,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
         "Lifestyle counseling",
         "Preventive care planning"
       ],
-      color: "teal",
+      color: "blue",
       page: "diabetes-management"
     },
     {
@@ -32,7 +32,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
         "Nail care and treatment",
         "Custom foot care plans"
       ],
-      color: "blue",
+      color: "navy",
       page: "podiatry"
     },
     {
@@ -46,7 +46,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
         "Anti-aging treatments",
         "Scar reduction therapy"
       ],
-      color: "purple",
+      color: "gray",
       page: "skin-care"
     },
     {
@@ -60,7 +60,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
         "Health risk assessments",
         "Chronic disease management"
       ],
-      color: "green",
+      color: "lightblue",
       page: "general-healthcare"
     },
     {
@@ -74,47 +74,40 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
         "Diabetic monitoring and care",
         "Elderly and bedridden patient support"
       ],
-      color: "orange",
+      color: "navy",
       page: "home-visit-care"
     }
   ];
 
   const getColorClasses = (color: string) => {
     const colorMap = {
-      teal: {
-        bg: "bg-teal-100",
-        text: "text-teal-600",
-        border: "border-teal-200",
-        hover: "hover:border-teal-300",
-        button: "bg-teal-600 hover:bg-teal-700"
-      },
       blue: {
         bg: "bg-blue-100",
-        text: "text-blue-600", 
+        text: "text-blue-600",
         border: "border-blue-200",
         hover: "hover:border-blue-300",
         button: "bg-blue-600 hover:bg-blue-700"
       },
-      purple: {
-        bg: "bg-purple-100",
-        text: "text-purple-600",
-        border: "border-purple-200", 
-        hover: "hover:border-purple-300",
-        button: "bg-purple-600 hover:bg-purple-700"
+      navy: {
+        bg: "bg-gray-100",
+        text: "text-gray-700", 
+        border: "border-gray-200",
+        hover: "hover:border-gray-300",
+        button: "bg-gray-700 hover:bg-gray-800"
       },
-      green: {
-        bg: "bg-green-100",
-        text: "text-green-600",
-        border: "border-green-200",
-        hover: "hover:border-green-300",
-        button: "bg-green-600 hover:bg-green-700"
+      gray: {
+        bg: "bg-gray-50",
+        text: "text-gray-600",
+        border: "border-gray-200", 
+        hover: "hover:border-gray-300",
+        button: "bg-gray-600 hover:bg-gray-700"
       },
-      orange: {
-        bg: "bg-orange-100",
-        text: "text-orange-600",
-        border: "border-orange-200",
-        hover: "hover:border-orange-300",
-        button: "bg-orange-600 hover:bg-orange-700"
+      lightblue: {
+        bg: "bg-blue-50",
+        text: "text-blue-600",
+        border: "border-blue-100",
+        hover: "hover:border-blue-200",
+        button: "bg-blue-600 hover:bg-blue-700"
       }
     };
     return colorMap[color as keyof typeof colorMap];
@@ -145,10 +138,10 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
             return (
               <div 
                 key={index}
-                className={`bg-white rounded-2xl p-8 shadow-lg border-2 ${colors.border} ${colors.hover} transition-all duration-300 hover:shadow-xl hover:transform hover:scale-105`}
+                className={`bg-white rounded-lg p-8 shadow-md border ${colors.border} ${colors.hover} transition-all duration-300 hover:shadow-lg`}
               >
                 <div className="flex items-start space-x-4 mb-6">
-                  <div className={`${colors.bg} p-4 rounded-2xl`}>
+                  <div className={`${colors.bg} p-4 rounded-lg`}>
                     <IconComponent className={`h-8 w-8 ${colors.text}`} />
                   </div>
                   <div className="flex-1">
@@ -188,16 +181,16 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
             const IconComponent = service.icon;
             
             return (
-              <div className={`bg-gradient-to-r from-orange-50 to-amber-50 rounded-3xl p-8 shadow-xl border-2 ${colors.border} ${colors.hover} transition-all duration-300 hover:shadow-2xl`}>
+              <div className={`bg-gray-50 rounded-lg p-8 shadow-md border ${colors.border} ${colors.hover} transition-all duration-300 hover:shadow-lg`}>
                 <div className="grid lg:grid-cols-2 gap-8 items-center">
                   <div>
                     <div className="flex items-center space-x-4 mb-6">
-                      <div className={`${colors.bg} p-4 rounded-2xl`}>
+                      <div className={`${colors.bg} p-4 rounded-lg`}>
                         <IconComponent className={`h-10 w-10 ${colors.text}`} />
                       </div>
                       <div>
                         <h3 className="text-3xl font-bold text-gray-800">{service.title}</h3>
-                        <p className="text-orange-600 font-semibold">Comfort of Your Home</p>
+                        <p className="text-gray-600 font-semibold">Comfort of Your Home</p>
                       </div>
                     </div>
                     <p className="text-gray-700 leading-relaxed mb-6 text-lg">
@@ -216,7 +209,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                     </div>
                     <button 
                       onClick={() => navigateToService(service.page)}
-                      className={`${colors.button} text-white py-4 px-8 rounded-full font-semibold transition-colors text-lg flex items-center space-x-2`}
+                      className={`${colors.button} text-white py-4 px-8 rounded-lg font-semibold transition-colors text-lg flex items-center space-x-2`}
                     >
                       <span>Schedule a Home Visit</span>
                       <span>→</span>
@@ -226,7 +219,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
                     <img 
                       src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600"
                       alt="Home visit medical care"
-                      className="w-full h-80 object-cover rounded-2xl shadow-lg"
+                      className="w-full h-80 object-cover rounded-lg shadow-md"
                     />
                   </div>
                 </div>
@@ -241,7 +234,7 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
               const element = document.getElementById('consultation');
               if (element) element.scrollIntoView({ behavior: 'smooth' });
             }}
-            className="bg-teal-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-teal-700 transition-colors"
+            className="bg-blue-600 text-white px-8 py-4 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors"
           >
             Book Your Consultation Today
           </button>

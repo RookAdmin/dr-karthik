@@ -49,12 +49,12 @@ const Testimonials = () => {
 
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
           {testimonials.map((testimonial, index) => (
-            <div key={index} className="bg-gradient-to-br from-gray-50 to-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-shadow duration-300 border border-gray-100">
+            <div key={index} className="bg-white rounded-lg p-6 shadow-md border border-gray-200">
               <div className="flex items-center mb-4">
                 <img 
                   src={testimonial.image}
                   alt={testimonial.name}
-                  className="w-12 h-12 rounded-full object-cover mr-4"
+                  className="w-12 h-12 rounded-lg object-cover mr-4"
                 />
                 <div>
                   <h4 className="font-bold text-gray-800">{testimonial.name}</h4>
@@ -69,12 +69,12 @@ const Testimonials = () => {
               </div>
               
               <div className="relative mb-4">
-                <Quote className="h-6 w-6 text-teal-600 opacity-50 absolute -top-2 -left-1" />
+                <Quote className="h-6 w-6 text-blue-600 opacity-50 absolute -top-2 -left-1" />
                 <p className="text-gray-700 text-sm leading-relaxed pl-6">{testimonial.text}</p>
               </div>
               
               <div className="border-t border-gray-200 pt-4">
-                <p className="text-xs text-teal-600 font-semibold uppercase tracking-wide">
+                <p className="text-xs text-blue-600 font-semibold uppercase tracking-wide">
                   {testimonial.condition}
                 </p>
               </div>
@@ -83,7 +83,7 @@ const Testimonials = () => {
         </div>
 
         <div className="text-center mt-12">
-          <div className="bg-teal-50 rounded-2xl p-8 max-w-4xl mx-auto">
+          <div className="bg-gray-50 rounded-lg p-8 max-w-4xl mx-auto border border-gray-200">
             <h3 className="text-2xl font-bold text-gray-800 mb-4">Join Our Satisfied Patients</h3>
             <p className="text-gray-600 mb-6">
               Experience the difference that personalized, compassionate medical care can make in your health journey.
@@ -93,7 +93,7 @@ const Testimonials = () => {
                 const element = document.getElementById('consultation');
                 if (element) element.scrollIntoView({ behavior: 'smooth' });
               }}
-              className="bg-teal-600 text-white px-8 py-3 rounded-full font-semibold hover:bg-teal-700 transition-colors"
+              className="bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-colors"
             >
               Schedule Your Consultation
             </button>

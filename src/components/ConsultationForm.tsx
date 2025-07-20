@@ -65,7 +65,7 @@ const ConsultationForm = () => {
   }
 
   return (
-    <section id="consultation" className="py-20 bg-gradient-to-br from-teal-50 to-blue-50">
+    <section id="consultation" className="py-20 bg-white">
       <div className="container mx-auto px-4">
         <div className="text-center mb-16">
           <h2 className="text-4xl font-bold text-gray-800 mb-4">Schedule Your Consultation</h2>
@@ -77,20 +77,20 @@ const ConsultationForm = () => {
         <div className="grid lg:grid-cols-2 gap-12 max-w-6xl mx-auto">
           {/* Contact Information */}
           <div className="space-y-8">
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-gray-50 rounded-lg p-8 shadow-md border border-gray-200">
               <h3 className="text-2xl font-bold text-gray-800 mb-6">Get in Touch</h3>
               <div className="space-y-6">
                 <div className="flex items-center space-x-4">
-                  <div className="bg-teal-100 p-3 rounded-full">
-                    <Phone className="h-6 w-6 text-teal-600" />
+                  <div className="bg-blue-100 p-3 rounded-lg">
+                    <Phone className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">Phone</p>
-                    <a href="tel:+1234567890" className="text-teal-600 hover:underline">+1 (234) 567-8900</a>
+                    <a href="tel:+1234567890" className="text-blue-600 hover:underline">+1 (234) 567-8900</a>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="bg-blue-100 p-3 rounded-full">
+                  <div className="bg-gray-100 p-3 rounded-lg">
                     <Mail className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
@@ -99,18 +99,18 @@ const ConsultationForm = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
-                  <div className="bg-green-100 p-3 rounded-full">
-                    <MessageCircle className="h-6 w-6 text-green-600" />
+                  <div className="bg-blue-50 p-3 rounded-lg">
+                    <MessageCircle className="h-6 w-6 text-blue-600" />
                   </div>
                   <div>
                     <p className="font-semibold text-gray-800">WhatsApp</p>
-                    <a href="https://wa.me/1234567890" className="text-green-600 hover:underline">Chat with us</a>
+                    <a href="https://wa.me/1234567890" className="text-blue-600 hover:underline">Chat with us</a>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white rounded-2xl p-8 shadow-lg">
+            <div className="bg-gray-50 rounded-lg p-8 shadow-md border border-gray-200">
               <h3 className="text-xl font-bold text-gray-800 mb-4">Clinic Hours</h3>
               <div className="space-y-2 text-gray-600">
                 <div className="flex justify-between">
@@ -130,7 +130,7 @@ const ConsultationForm = () => {
           </div>
 
           {/* Consultation Form */}
-          <div className="bg-white rounded-2xl p-8 shadow-lg">
+          <div className="bg-white rounded-lg p-8 shadow-md border border-gray-200">
             <form onSubmit={handleSubmit} className="space-y-6">
               <div className="grid md:grid-cols-2 gap-6">
                 <div>
@@ -144,7 +144,7 @@ const ConsultationForm = () => {
                     value={formData.name}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Enter your full name"
                   />
                 </div>
@@ -159,7 +159,7 @@ const ConsultationForm = () => {
                     value={formData.phone}
                     onChange={handleChange}
                     required
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                     placeholder="Enter your phone number"
                   />
                 </div>
@@ -176,7 +176,7 @@ const ConsultationForm = () => {
                   value={formData.email}
                   onChange={handleChange}
                   required
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   placeholder="Enter your email address"
                 />
               </div>
@@ -192,7 +192,7 @@ const ConsultationForm = () => {
                     name="preferredDate"
                     value={formData.preferredDate}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   />
                 </div>
                 <div>
@@ -203,7 +203,7 @@ const ConsultationForm = () => {
                     name="preferredTime"
                     value={formData.preferredTime}
                     onChange={handleChange}
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                   >
                     <option value="">Select time</option>
                     <option value="9:00 AM">9:00 AM</option>
@@ -225,7 +225,7 @@ const ConsultationForm = () => {
                   name="service"
                   value={formData.service}
                   onChange={handleChange}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                 >
                   <option value="">Select a service</option>
                   <option value="diabetes">Diabetes Management</option>
@@ -245,14 +245,14 @@ const ConsultationForm = () => {
                   value={formData.message}
                   onChange={handleChange}
                   rows={4}
-                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-teal-500 focus:border-transparent transition-all resize-none"
+                  className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
                   placeholder="Tell us about your health concerns or any specific questions you have..."
                 ></textarea>
               </div>
 
               <button
                 type="submit"
-                className="w-full bg-teal-600 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-teal-700 transition-colors flex items-center justify-center space-x-2"
+                className="w-full bg-blue-600 text-white py-4 px-6 rounded-lg text-lg font-semibold hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
               >
                 <Calendar className="h-5 w-5" />
                 <span>Schedule Consultation</span>
