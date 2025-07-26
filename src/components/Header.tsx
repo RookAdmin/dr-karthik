@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stethoscope, Menu, X, Phone, ChevronDown, Calendar } from 'lucide-react';
+import { Stethoscope, Menu, X, Phone, ChevronDown, Calendar, MapPin } from 'lucide-react';
 
 interface HeaderProps {
   currentPage: string;
@@ -47,19 +47,19 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   ];
 
   return (
-    <header className="bg-white shadow-lg sticky top-0 z-50">
+    <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
           <button 
             onClick={() => navigateToPage('home')}
             className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
           >
-            <div className="bg-blue-600 p-2 rounded-lg">
+            <div className="bg-blue-600 p-3 rounded-xl">
               <Stethoscope className="h-6 w-6 text-white" />
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gray-800">Dr. Karthick Palanisamy</h1>
-              <p className="text-sm text-blue-600">Diabetes Care & Podiatry Expert</p>
+              <h1 className="text-2xl font-bold text-gray-900">Dr. Karthick Palanisamy</h1>
+              <p className="text-sm text-gray-600">Premium Medical Care</p>
             </div>
           </button>
 
@@ -67,13 +67,13 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
           <nav className="hidden md:flex items-center space-x-8">
             <button 
               onClick={() => navigateToPage('home')}
-              className={`transition-colors ${currentPage === 'home' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors font-medium ${currentPage === 'home' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               Home
             </button>
             <button 
               onClick={() => navigateToPage('about-page')}
-              className={`transition-colors ${currentPage === 'about-page' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors font-medium ${currentPage === 'about-page' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               About Dr. Karthick
             </button>
@@ -87,7 +87,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               <button 
                 className="flex items-center space-x-1 text-gray-700 hover:text-blue-600 transition-colors"
               >
-                <span>Services</span>
+                <span className="font-medium">Services</span>
                 <ChevronDown className={`h-4 w-4 transition-transform ${isServicesDropdownOpen ? 'rotate-180' : ''}`} />
               </button>
               
@@ -119,19 +119,19 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             
             <button 
               onClick={() => navigateToPage('patient-resources')}
-              className={`transition-colors ${currentPage === 'patient-resources' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors font-medium ${currentPage === 'patient-resources' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               Patient Resources
             </button>
             <button 
               onClick={() => navigateToPage('contact-us')}
-              className={`transition-colors ${currentPage === 'contact-us' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
+              className={`transition-colors font-medium ${currentPage === 'contact-us' ? 'text-blue-600 font-semibold' : 'text-gray-700 hover:text-blue-600'}`}
             >
               Contact Us
             </button>
             <button 
               onClick={() => navigateToPage('book-appointment')}
-              className="bg-blue-600 text-white px-6 py-2 rounded-lg hover:bg-blue-700 transition-colors flex items-center space-x-2"
+              className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors flex items-center space-x-2 font-medium"
             >
               <Calendar className="h-4 w-4" />
               <span>Book Appointment</span>
