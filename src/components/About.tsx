@@ -1,169 +1,167 @@
 import React from 'react';
-import { GraduationCap, Award, Users, Heart, Star, Quote } from 'lucide-react';
 
-const About = () => {
+const DiabeticsFootClinicAbout: React.FC = () => {
   return (
-    <>
-      {/* Testimonials and Ratings Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-4">
-          <div className="grid lg:grid-cols-12 gap-8 max-w-7xl mx-auto">
-            {/* Left side - Images and Rating */}
-            <div className="lg:col-span-7 space-y-6">
-              {/* Top image */}
-              <div className="relative">
-                <img 
-                  src="https://images.pexels.com/photos/5452201/pexels-photo-5452201.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Medical consultation"
-                  className="w-full h-64 object-cover rounded-2xl"
-                />
-              </div>
-              
-              {/* Bottom row */}
-              <div className="grid grid-cols-2 gap-6">
-                {/* Testimonial card */}
-                <div className="bg-purple-100 rounded-2xl p-6">
-                  <Quote className="h-8 w-8 text-purple-600 mb-4" />
-                  <p className="text-gray-700 text-sm leading-relaxed mb-6">
-                    "I had a great experience at this healthcare clinic. I was seen quickly, 
-                    and the doctor was able to diagnose and treat my condition very patiently."
-                  </p>
-                  
-                  <div className="flex items-center space-x-3">
-                    <img 
-                      src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg?auto=compress&cs=tinysrgb&w=100"
-                      alt="Walter White"
-                      className="w-10 h-10 rounded-full object-cover"
-                    />
-                    <div>
-                      <p className="font-semibold text-gray-900 text-sm">Walter White</p>
-                      <p className="text-gray-600 text-xs">Head of Cardiology Department</p>
-                    </div>
-                  </div>
-                  
-                  <div className="flex justify-between items-center mt-4">
-                    <div className="flex space-x-1">
-                      <button className="w-2 h-2 bg-gray-400 rounded-full"></button>
-                      <button className="w-2 h-2 bg-purple-600 rounded-full"></button>
-                    </div>
-                  </div>
+    <div className="bg-gray-50 py-16 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-7xl mx-auto">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Left Content */}
+          <div className="space-y-8">
+            {/* Header */}
+            <div>
+              <p className="text-[#22578c] font-semibold text-sm uppercase tracking-wide mb-4">
+                ABOUT DIABETIC FOOT CLINIC
+              </p>
+              <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight mb-6">
+                We Provide Finest Patient's{' '}
+                <span className="text-gray-900">Care & Amenities</span>
+              </h2>
+              <p className="text-gray-600 text-lg leading-relaxed">
+                Embrace a world of comprehensive diabetic foot healthcare where your well-being takes center 
+                stage. At our clinic, we're dedicated to providing you with personalized and 
+                compassionate medical services for diabetic foot complications.
+              </p>
+            </div>
+
+            {/* Features Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
                 </div>
-                
-                {/* Rating and compliance cards */}
-                <div className="space-y-4">
-                  {/* Google Rating */}
-                  <div className="bg-green-100 rounded-2xl p-6 text-center">
-                    <p className="text-gray-600 text-xs uppercase tracking-wide mb-2">AVERAGE GOOGLE RATINGS</p>
-                    <div className="flex items-center justify-center space-x-2">
-                      <Star className="h-6 w-6 text-green-600 fill-current" />
-                      <span className="text-3xl font-bold text-gray-900">4.9</span>
-                    </div>
-                  </div>
-                  
-                  {/* Compliance card */}
-                  <div className="bg-gray-100 rounded-2xl p-6">
-                    <div className="flex items-center space-x-3 mb-3">
-                      <div className="bg-blue-600 p-2 rounded-lg">
-                        <Award className="h-5 w-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-gray-600 text-xs uppercase tracking-wide">HIPAA COMPLIANT</p>
-                        <p className="font-semibold text-gray-900 text-sm">We provide award-winning quality care</p>
-                      </div>
-                    </div>
-                    <button className="text-blue-600 text-xs font-semibold hover:text-blue-700 transition-colors">
-                      → Learn More
-                    </button>
-                  </div>
+                <span className="text-gray-800 font-medium">Seamless Care</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Patient-Centered Care</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Warm and Welcoming Environment</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Personalized Approach</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Comprehensive Care</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Cutting-Edge Technology</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Expert Doctors</span>
+              </div>
+
+              <div className="flex items-center space-x-3">
+                <div className="flex-shrink-0">
+                  <svg className="w-5 h-5 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clipRule="evenodd" />
+                  </svg>
+                </div>
+                <span className="text-gray-800 font-medium">Positive Reviews</span>
+              </div>
+            </div>
+
+            {/* Description */}
+            <p className="text-gray-600 leading-relaxed">
+              Our specialized diabetic foot clinic focuses on preventing and treating foot complications 
+              in diabetic patients. We provide comprehensive wound care, infection management, 
+              vascular assessments, and preventive education to help maintain optimal foot health 
+              and prevent amputations.
+            </p>
+
+            {/* Button */}
+            <div>
+              <button className="bg-[#22578c] hover:bg-blue-600 text-white font-semibold py-3 px-8 rounded-full flex items-center space-x-2 transition duration-300">
+                <span className="w-6 h-6 bg-white bg-opacity-20 rounded-full flex items-center justify-center">
+                  <svg className="w-3 h-3" fill="currentColor" viewBox="0 0 20 20">
+                    <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-8.707l-3-3a1 1 0 00-1.414 1.414L10.586 9H7a1 1 0 100 2h3.586l-1.293 1.293a1 1 0 101.414 1.414l3-3a1 1 0 000-1.414z" clipRule="evenodd" />
+                  </svg>
+                </span>
+                <span>More About Us</span>
+              </button>
+            </div>
+          </div>
+
+          {/* Right Content - Images and Stats */}
+          <div className="relative">
+            {/* Main Image */}
+            <div className="relative rounded-2xl overflow-hidden shadow-2xl">
+              <img 
+                src="https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                alt="Diabetic foot examination" 
+                className="w-full h-96 object-cover"
+              />
+            </div>
+
+            {/* Stats Cards */}
+            <div className="absolute -top-4 -right-4 bg-purple-100 rounded-2xl p-6 shadow-lg">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-gray-900 mb-1">22</div>
+                <div className="text-sm text-gray-600 font-medium">
+                  DIFFERENT<br />SECTIONS
                 </div>
               </div>
             </div>
-            
-            {/* Right side - Large medical image */}
-            <div className="lg:col-span-5">
+
+            <div className="absolute -bottom-8 -left-8 bg-green-100 rounded-2xl p-6 shadow-lg">
+              <div className="text-center">
+                <div className="text-4xl font-bold text-gray-900 mb-1">5K+</div>
+                <div className="text-sm text-gray-600 font-medium">
+                  PATIENT'S<br />REVIEWS
+                </div>
+              </div>
+            </div>
+
+            {/* Secondary Image */}
+            <div className="absolute bottom-4 right-4 w-32 h-32 rounded-full overflow-hidden shadow-xl border-4 border-white">
               <img 
-                src="https://images.pexels.com/photos/4386467/pexels-photo-4386467.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Medical team in surgery"
-                className="w-full h-full object-cover rounded-2xl min-h-[500px]"
+                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80" 
+                alt="Doctor consultation" 
+                className="w-full h-full object-cover"
               />
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-wide mb-4">WHY CHOOSE US</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              We Are Different To <span className="text-blue-600">Protect</span><br />
-              <span className="text-gray-900">Your Health</span>
-            </h2>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-            <div className="text-center">
-              <div className="w-20 h-20 bg-purple-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <div className="w-12 h-12 bg-purple-600 rounded-xl flex items-center justify-center">
-                  <Heart className="h-6 w-6 text-white" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Not Just Better Care, But A Better Experience
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                At our medical center, we believe in providing not just better care but a better experience overall. 
-                We understand that your journey to health matters.
-              </p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center space-x-1 mx-auto">
-                <span>Learn More</span>
-                <span>→</span>
-              </button>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-red-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <div className="w-12 h-12 bg-red-600 rounded-xl flex items-center justify-center">
-                  <Users className="h-6 w-6 text-white" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Serving All People Through Exemplary Care
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                At our medical center, we believe in providing not just better care but a better experience overall. 
-                We understand that your journey to health matters.
-              </p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center space-x-1 mx-auto">
-                <span>Learn More</span>
-                <span>→</span>
-              </button>
-            </div>
-
-            <div className="text-center">
-              <div className="w-20 h-20 bg-blue-100 rounded-2xl flex items-center justify-center mx-auto mb-8">
-                <div className="w-12 h-12 bg-blue-600 rounded-xl flex items-center justify-center">
-                  <Award className="h-6 w-6 text-white" />
-                </div>
-              </div>
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Specialty Medicine with Compassion and Care
-              </h3>
-              <p className="text-gray-600 leading-relaxed mb-6">
-                At our medical center, we believe in providing not just better care but a better experience overall. 
-                We understand that your journey to health matters.
-              </p>
-              <button className="text-blue-600 font-semibold hover:text-blue-700 transition-colors flex items-center space-x-1 mx-auto">
-                <span>Learn More</span>
-                <span>→</span>
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-    </>
+      </div>
+    </div>
   );
 };
 
-export default About;
+export default DiabeticsFootClinicAbout;

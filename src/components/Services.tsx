@@ -1,102 +1,64 @@
 import React from 'react';
-import { Activity, Footprints, Sparkles, Shield, Home, Info, Stethoscope, MapPin, Phone } from 'lucide-react';
+import { Stethoscope, Footprints, Info} from 'lucide-react';
 
 interface ServicesProps {
   setCurrentPage?: (page: string) => void;
 }
 
 const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
-  const quickAccessCards = [
+  const additionalServices = [
     {
-      icon: Info,
-      title: "PATIENT INFORMATION",
-      description: "View all information for patients and follow all terms & conditions.",
-      bgColor: "bg-blue-100",
-      iconColor: "text-blue-600",
-      page: "patient-resources"
+      icon: Footprints,
+      title: "PODIATRY SERVICES",
+      description: "Care for foot and ankle conditions, including ingrown toe nails and fungal infections",
+      bgColor: "bg-teal-100",
+      iconColor: "text-teal-600",
+      page: "podiatry-services"
     },
     {
       icon: Stethoscope,
-      title: "FIND A DOCTOR",
-      description: "View all information about our doctors and follow all terms & conditions.",
-      bgColor: "bg-green-100",
-      iconColor: "text-green-600",
-      page: "about-page"
-    },
-    {
-      icon: MapPin,
-      title: "OUR LOCATIONS",
-      description: "View all information about our locations and follow all terms & conditions.",
+      title: "SKIN TREATMENT",
+      description: "All skin conditions and skin whitening treatments",
       bgColor: "bg-purple-100",
-      iconColor: "text-purple-600",
-      page: "contact-us"
+      iconColor: "text-[#5e8f1e]",
+      page: "skin-treatment"
     },
     {
-      icon: Phone,
-      title: "CONNECT WITH US",
-      description: "View all information about connecting with us and follow all terms & conditions.",
-      bgColor: "bg-orange-100",
-      iconColor: "text-orange-600",
-      page: "contact-us"
+      icon: Info,
+      title: "NUTRITION/DIET COUNSELING",
+      description: "Personalized guidance on healthy eating and meal planning to support your overall well-being",
+      bgColor: "bg-green-100",
+      iconColor: "text-[#22578c]",
+      page: "nutrition-counseling"
     }
   ];
 
   const services = [
     {
-      icon: Activity,
-      title: "Diabetes Management",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "blue",
-      page: "diabetes-management"
+      icon: Stethoscope,
+      title: "General Treatments",
+      treatments: [
+        "General Health Check-ups",
+        "Chronic Disease Management", 
+        "Wound Care",
+        "Preventive Care",
+        "Diabetes Management"
+      ],
+      color: "#22578c",
+      page: "general-treatments"
     },
     {
       icon: Footprints,
-      title: "Podiatry Services",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "teal",
-      page: "podiatry"
-    },
-    {
-      icon: Sparkles,
-      title: "Skin Care Treatments",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "purple",
-      page: "skin-care"
-    },
-    {
-      icon: Shield,
-      title: "General Healthcare",
-      description: "25+ Doctors are available under this department who serve.",
-      color: "green",
-      page: "general-healthcare"
-    },
-    {
-      icon: Home,
-      title: "Home Visit Care",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "orange",
-      page: "home-visit-care"
-    },
-    {
-      icon: Stethoscope,
-      title: "Emergency Care",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "red",
-      page: "general-healthcare"
-    },
-    {
-      icon: Activity,
-      title: "Cardiology",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "blue",
-      page: "general-healthcare"
-    },
-    {
-      icon: Shield,
-      title: "Medicine & Nephrology",
-      description: "20+ Doctors are available under this department who serve.",
-      color: "indigo",
-      page: "general-healthcare"
+      title: "Diabetic Foot Treatments",
+      treatments: [
+        "Foot Ulcer Care",
+        "Infection Management",
+        "Neuropathy Management", 
+        "Foot Deformity Treatment",
+        "Amputation Prevention"
+      ],
+      color: "#5e8f1e",
+      page: "diabetic-foot-treatments"
     }
   ];
 
@@ -109,70 +71,84 @@ const Services: React.FC<ServicesProps> = ({ setCurrentPage }) => {
 
   return (
     <>
-      {/* Quick Access Cards Section */}
-      <section className="py-16 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 max-w-7xl mx-auto">
-            {quickAccessCards.map((card, index) => {
-              const IconComponent = card.icon;
-              return (
-                <div 
-                  key={index}
-                  onClick={() => navigateToPage(card.page)}
-                  className={`${card.bgColor} rounded-3xl p-8 cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
-                >
-                  <div className="mb-6">
-                    <IconComponent className={`h-8 w-8 ${card.iconColor}`} />
-                  </div>
-                  <h3 className="font-bold text-gray-900 text-lg mb-4 leading-tight">
-                    {card.title}
-                  </h3>
-                  <p className="text-gray-600 text-sm leading-relaxed mb-6">
-                    {card.description}
-                  </p>
-                  <button className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors flex items-center space-x-1">
-                    <span>Learn More</span>
-                    <span>→</span>
-                  </button>
-                </div>
-              );
-            })}
-          </div>
-        </div>
-      </section>
+     
 
       {/* Main Services Section */}
       <section id="services" className="py-20 bg-gray-100">
+      <div className="container mx-auto px-4">
+        <div className="text-center mb-16">
+          <p className="text-[#5e8f1e] font-semibold text-sm uppercase tracking-wide mb-4">OUR SERVICES</p>
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            WE SERVE IN DIFFERENT <span className="text-[#22578c]">AREAS FOR</span><br />
+            <span className="text-gray-900">OUR PATIENTS</span>
+          </h2>
+        </div>
+
+        <div className="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto">
+          {services.map((service, index) => {
+            const IconComponent = service.icon;
+            
+            return (
+              <div 
+                key={index}
+                onClick={() => navigateToPage(service.page)}
+                className="bg-white rounded-2xl p-10 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+              >
+                <div className="mb-8">
+                  <IconComponent className="h-16 w-16 text-[#22578c] group-hover:text-blue-700 transition-colors" />
+                </div>
+                
+                <h3 className="text-2xl font-bold text-gray-900 mb-8">{service.title}</h3>
+                
+                <ul className="space-y-4 mb-8">
+                  {service.treatments.map((treatment, treatmentIndex) => (
+                    <li key={treatmentIndex} className="flex items-start">
+                      <span className="text-blue-600 mr-3 mt-1">•</span>
+                      <span className="text-gray-700 text-base leading-relaxed">{treatment}</span>
+                    </li>
+                  ))}
+                </ul>
+                
+                <button className="text-blue-600 font-semibold text-base hover:text-blue-700 transition-colors flex items-center space-x-2 group-hover:translate-x-1">
+                  <span>Learn More</span>
+                  <span>→</span>
+                </button>
+              </div>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+
+
+     {/* Additional Services Section */}
+     <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <p className="text-blue-600 font-semibold text-sm uppercase tracking-wide mb-4">OUR SERVICES</p>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-              We Serve In Different <span className="text-blue-600">Areas For</span><br />
-              <span className="text-gray-900">Our Patients</span>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-4">
+              <span className="text-[#22578c]">ADDITIONAL</span> SERVICES
             </h2>
           </div>
-
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-7xl mx-auto">
-            {services.map((service, index) => {
+          <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+            {additionalServices.map((service, index) => {
               const IconComponent = service.icon;
-              
               return (
                 <div 
                   key={index}
                   onClick={() => navigateToPage(service.page)}
-                  className="bg-white rounded-2xl p-8 shadow-md hover:shadow-xl transition-all duration-300 cursor-pointer group"
+                  className={`${service.bgColor} rounded-3xl p-8 cursor-pointer hover:shadow-lg transition-all duration-300 transform hover:-translate-y-1`}
                 >
                   <div className="mb-6">
-                    <IconComponent className="h-12 w-12 text-blue-600 group-hover:text-blue-700 transition-colors" />
+                    <IconComponent className={`h-10 w-10 ${service.iconColor}`} />
                   </div>
-                  
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{service.title}</h3>
+                  <h3 className="font-bold text-gray-900 text-lg mb-4 leading-tight">
+                    {service.title}
+                  </h3>
                   <p className="text-gray-600 text-sm leading-relaxed mb-6">
                     {service.description}
                   </p>
-                  
-                  <button className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors flex items-center space-x-1 group-hover:translate-x-1">
-                    <span>Read More</span>
+                  <button className="text-blue-600 font-semibold text-sm hover:text-blue-700 transition-colors flex items-center space-x-1">
+                    <span>Learn More</span>
                     <span>→</span>
                   </button>
                 </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Stethoscope, Menu, X, Phone, ChevronDown, Calendar, MapPin } from 'lucide-react';
+import { Menu, X, ChevronDown, Calendar} from 'lucide-react';
 
 interface HeaderProps {
   currentPage: string;
@@ -50,18 +50,17 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     <header className="bg-white shadow-sm sticky top-0 z-50 border-b border-gray-100">
       <div className="container mx-auto px-4 py-4">
         <div className="flex justify-between items-center">
-          <button 
-            onClick={() => navigateToPage('home')}
-            className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
-          >
-            <div className="bg-blue-600 p-3 rounded-xl">
-              <Stethoscope className="h-6 w-6 text-white" />
-            </div>
-            <div>
-              <h1 className="text-2xl font-bold text-gray-900">Dr. Karthick Palanisamy</h1>
-              <p className="text-sm text-gray-600">Premium Medical Care</p>
-            </div>
-          </button>
+        <button 
+  onClick={() => navigateToPage('home')}
+  className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
+>
+  <img 
+    src="/public/logo.png" // replace with your actual logo path
+    alt="Clinic Logo"
+    className="h-14 w-auto" // adjust height/width as needed
+  />
+</button>
+
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center space-x-8">
@@ -202,7 +201,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
               </button>
               <button 
                 onClick={() => navigateToPage('book-appointment')}
-                className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
+                className="bg-[#22578c] text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors flex items-center justify-center space-x-2"
               >
                 <Calendar className="h-4 w-4" />
                 <span>Book Appointment</span>
