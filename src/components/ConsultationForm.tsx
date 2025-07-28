@@ -397,7 +397,7 @@ const ConsultationForm = () => {
                 </div>
 
                 {/* Trust Badges */}
-                <div className="mt-8 pt-8 border-t border-slate-100">
+                {/* <div className="mt-8 pt-8 border-t border-slate-100">
                   <div className="flex items-center justify-center space-x-8 text-sm text-slate-600">
                     <div className="flex items-center space-x-2">
                       <div className="w-2 h-2 bg-[#5e8f1e] rounded-full"></div>
@@ -408,7 +408,7 @@ const ConsultationForm = () => {
                       <span>24h Response Time</span>
                     </div>
                   </div>
-                </div>
+                </div> */}
               </div>
             </div>
           </div>

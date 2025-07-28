@@ -130,7 +130,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
             </button>
             <button 
               onClick={() => navigateToPage('book-appointment')}
-              className="bg-blue-600 text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors flex items-center space-x-2 font-medium"
+              className="bg-[#22578c] text-white px-6 py-3 rounded-xl hover:bg-blue-700 transition-colors flex items-center space-x-2 font-medium"
             >
               <Calendar className="h-4 w-4" />
               <span>Book Appointment</span>

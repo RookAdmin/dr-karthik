@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Calendar, Clock, MapPin, Video, Home, User, Phone, Mail, MessageCircle, CheckCircle, Stethoscope, ArrowRight } from 'lucide-react';
+import { Calendar, Clock, Video, Home, User, Phone, Mail, MessageCircle, CheckCircle, Stethoscope, ArrowRight } from 'lucide-react';
 
 const AppointmentBookingPage = () => {
   const [formData, setFormData] = useState({

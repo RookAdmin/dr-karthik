@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Calendar, Heart, Shield, Award, Users, Stethoscope, Activity, ArrowRight } from "lucide-react";
+import { Calendar, Heart, Shield, Award, Stethoscope, Activity, ArrowRight } from "lucide-react";
 
 interface HeroProps {
   setCurrentPage?: (page: string) => void;
@@ -40,8 +40,6 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
         {/* Minimal geometric shapes */}
         <div className="absolute top-1/4 left-8 w-2 h-20 bg-gradient-to-b from-blue-200 to-transparent rounded-full opacity-60"></div>
         <div className="absolute bottom-1/3 right-12 w-2 h-16 bg-gradient-to-b from-orange-200 to-transparent rounded-full opacity-60"></div>
-        
-        {/* Subtle dots pattern */}
         <div className="absolute top-16 right-1/4 w-1 h-1 bg-gray-300 rounded-full"></div>
         <div className="absolute top-24 right-1/4 w-1 h-1 bg-gray-300 rounded-full"></div>
         <div className="absolute top-32 right-1/4 w-1 h-1 bg-gray-300 rounded-full"></div>
@@ -79,7 +77,6 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
                   alt="Dr. Karthick Palanisamy"
                   className="w-full h-auto object-cover rounded-3xl shadow-2xl transform transition-transform hover:scale-[1.02] duration-700"
                 />
-                
                 {/* Subtle overlay gradient */}
                 <div className="absolute inset-0 bg-gradient-to-t from-black/5 to-transparent rounded-3xl pointer-events-none"></div>
               </div>
@@ -99,17 +96,20 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
                 </div>
               </div>
 
-              {/* Patient count badge */}
+              {/* Doctor Info replaces Patient Badge */}
               <div className={`absolute -bottom-6 -left-6 bg-white rounded-2xl p-4 shadow-xl border border-gray-100 transform transition-all duration-1000 ${
                 isVisible ? 'translate-y-0 opacity-100' : 'translate-y-4 opacity-0'
-              }`} style={{ transitionDelay: '1.2s' }}>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-green-50 rounded-full p-2">
-                    <Users className="h-5 w-5 text-green-600" />
+              }`} style={{ transitionDelay: '1.2s', minWidth: '230px' }}>
+                <div className="space-y-1">
+                  <div className="text-gray-900 font-bold text-base leading-snug">Dr. Karthick Palanisamy</div>
+                  <div className="text-gray-600 text-sm font-medium leading-snug">
+                    M.D., FIDM., FICM., PGDip. pod
                   </div>
-                  <div>
-                    <div className="text-sm font-bold text-gray-900">500+</div>
-                    <div className="text-xs text-gray-600">Patients</div>
+                  <div className="text-blue-700 text-sm font-medium leading-snug">
+                    Diabetologist&nbsp;|&nbsp;Podiatrist
+                  </div>
+                  <div className="text-green-700 text-sm font-medium leading-snug">
+                    Geriatric Home Care Specialist
                   </div>
                 </div>
               </div>
@@ -132,18 +132,16 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
                 Let's{" "}
                 <span className="relative">
                   <span className="text-[#22578c]">Beat</span>
-                  {/* <div className="absolute -bottom-2 left-0 right-0 h-1 bg-blue-200 rounded-full"></div> */}
                 </span>
                 <br />
                 <span className="relative">
                   <span className="text-[#5e8f1e]">Diabetes.</span>
-                  {/* <div className="absolute -bottom-2 left-0 right-0 h-1 bg-orange-200 rounded-full"></div> */}
                 </span>
               </h1>
-              
+
               <p className="text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
                 Personalized care for diabetes and foot complications—because{" "}
-                <span className="text-gray-900 font-medium">early action leads to a healthier tomorrow.</span>
+                <span className="text-gray-900 font-medium">Early action leads to a healthier tomorrow.</span>
               </p>
             </div>
 
@@ -180,22 +178,6 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
                 Learn More
               </button>
             </div>
-
-            {/* Clean trust indicators */}
-            {/* <div className="flex items-center justify-center lg:justify-start space-x-8 pt-8 border-t border-gray-100">
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">15+</div>
-                <div className="text-gray-500 text-sm">Years</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">500+</div>
-                <div className="text-gray-500 text-sm">Patients</div>
-              </div>
-              <div className="text-center">
-                <div className="text-2xl font-bold text-gray-900">4.9★</div>
-                <div className="text-gray-500 text-sm">Rating</div>
-              </div>
-            </div> */}
           </div>
         </div>
       </div>

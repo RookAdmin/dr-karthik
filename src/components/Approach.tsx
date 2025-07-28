@@ -73,7 +73,7 @@ const Approach = () => {
             </div>
             <div>
               <img 
-                src="https://images.pexels.com/photos/4173251/pexels-photo-4173251.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src="/why-choose.jpg"
                 alt="Diabetic foot care consultation"
                 className="w-full h-80 object-cover rounded-2xl shadow-lg"
               />
