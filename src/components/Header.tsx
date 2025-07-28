@@ -55,7 +55,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   className="flex items-center space-x-3 hover:opacity-80 transition-opacity"
 >
   <img 
-    src="/public/logo.png" // replace with your actual logo path
+    src="/logo.png" // replace with your actual logo path
     alt="Clinic Logo"
     className="h-14 w-auto" // adjust height/width as needed
   />

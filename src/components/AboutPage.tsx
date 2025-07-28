@@ -1,4 +1,3 @@
-import React from 'react';
 import { GraduationCap, Award, Users, Heart, Microscope, BookOpen, Calendar, ArrowRight } from 'lucide-react';
 
 const AboutPage = () => {

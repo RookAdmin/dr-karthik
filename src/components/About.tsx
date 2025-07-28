@@ -124,7 +124,7 @@ const DiabeticsFootClinicAbout: React.FC = () => {
             {/* Main Image */}
             <div className="relative rounded-2xl overflow-hidden shadow-2xl">
               <img 
-                src="/public/about.jpg" 
+                src="/about.jpg" 
                 alt="Diabetic foot examination" 
                 className="w-full h-96 object-cover"
               />
