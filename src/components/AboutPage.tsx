@@ -1,4 +1,5 @@
 import { GraduationCap, Award, Users, Heart, Microscope, BookOpen, Calendar, ArrowRight } from 'lucide-react';
+import { useEffect, useState } from 'react';
 
 const AboutPage = () => {
   const scrollToConsultation = () => {
@@ -7,6 +8,13 @@ const AboutPage = () => {
       element.scrollIntoView({ behavior: 'smooth' });
     }
   };
+
+
+    const [isVisible, setIsVisible] = useState(false);
+  
+    useEffect(() => {
+      setIsVisible(true);
+    }, []);
 
   const qualifications = [
     {
@@ -57,19 +65,71 @@ const AboutPage = () => {
         <div className="container mx-auto px-4">
           <div className="grid lg:grid-cols-2 gap-12 items-center max-w-6xl mx-auto">
             <div>
-              <div className="bg-white rounded-3xl shadow-xl p-8">
-                <img 
-                  src="https://images.pexels.com/photos/5452293/pexels-photo-5452293.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Dr. Karthick Palanisamy"
-                  className="w-full h-96 object-cover rounded-2xl"
-                />
-                <div className="text-center mt-6">
-                  <div className="bg-teal-50 rounded-xl p-4">
-                    <p className="text-teal-800 font-semibold text-lg">11+ Years of Experience</p>
-                    <p className="text-teal-600">Serving patients with dedication and expertise</p>
-                  </div>
-                </div>
-              </div>
+             <div
+                        className={`flex justify-center lg:justify-start order-2 lg:order-1 mt-8 lg:-mt-12 transform transition-all duration-1000 ${
+                          isVisible
+                            ? "translate-y-0 opacity-100"
+                            : "translate-y-8 opacity-0"
+                        }`}
+                        style={{ transitionDelay: "0.2s" }}
+                      >
+                        <div className="relative w-full max-w-[380px] lg:max-w-[480px]">
+                          {/* Main image container */}
+                          <div className="relative">
+                            <img
+                              src="/hero.png"
+                              alt="Dr. Karthick Palanisamy"
+                              className="w-full h-auto object-cover rounded-2xl sm:rounded-3xl shadow-xl"
+                            />
+                          </div>
+            
+                          {/* Update floating badges for mobile */}
+                          <div
+                            className={`absolute -top-4 sm:-top-6 -right-4 sm:-right-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-100 transform transition-all duration-1000 ${
+                              isVisible
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-4 opacity-0"
+                            }`}
+                            style={{ transitionDelay: "1s" }}
+                          >
+                            <div className="flex items-center space-x-3">
+                              <div className="bg-blue-50 rounded-full p-2">
+                                <Award className="h-5 w-5 text-blue-600" />
+                              </div>
+                              <div>
+                                <div className="text-sm font-bold text-gray-900">
+                                  Certified
+                                </div>
+                                <div className="text-xs text-gray-600">Specialist</div>
+                              </div>
+                            </div>
+                          </div>
+            
+                          <div
+                            className={`absolute -bottom-4 sm:-bottom-6 -left-4 sm:-left-6 bg-white rounded-xl sm:rounded-2xl p-3 sm:p-4 shadow-xl border border-gray-100 transform transition-all duration-1000 ${
+                              isVisible
+                                ? "translate-y-0 opacity-100"
+                                : "translate-y-4 opacity-0"
+                            }`}
+                            style={{ transitionDelay: "1.2s", minWidth: "230px" }}
+                          >
+                            <div className="space-y-1">
+                              <div className="text-gray-900 font-bold text-sm sm:text-base leading-snug">
+                                Dr. Karthick Palanisamy
+                              </div>
+                              <div className="text-gray-600 text-xs sm:text-sm font-medium leading-snug">
+                                M.D., FIDM., FICM., PGDip. pod
+                              </div>
+                              <div className="text-blue-700 text-xs sm:text-sm font-medium leading-snug">
+                                Diabetologist&nbsp;|&nbsp;Podiatrist
+                              </div>
+                              <div className="text-green-700 text-xs sm:text-sm font-medium leading-snug">
+                                Geriatric Home Care Specialist
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
             </div>
             
             <div>

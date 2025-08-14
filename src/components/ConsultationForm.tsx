@@ -90,12 +90,12 @@ const ConsultationForm = () => {
       <div className="container mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-16 max-w-3xl mx-auto">
-          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#22578c] to-[#5e8f1e] rounded-2xl mb-6">
+          <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#22578c] to-[#1e4a73] rounded-2xl mb-6">
             <Calendar className="h-6 w-6 text-white" />
           </div>
-          <h2 className="text-5xl font-light text-[#22578c] mb-6 leading-tight">
-            Schedule Your
-            <span className=" font-medium text-[#5e8f1e]"> Consultation</span>
+            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+         Schedule Your <span className="text-[#22578c]">Consultation</span><br />
+
           </h2>
           <p className="text-xl text-slate-600 leading-relaxed">
             Experience personalized healthcare with Dr. Karthick Palanisamy.
@@ -134,7 +134,7 @@ const ConsultationForm = () => {
 
                   <div className="group cursor-pointer">
                     <div className="flex items-center space-x-4 p-4 rounded-2xl transition-all duration-300 hover:bg-slate-50">
-                      <div className="bg-gradient-to-br from-[#5e8f1e] to-[#4a7318] p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                      <div className="bg-gradient-to-br from-[#22578c] to-[#1e4a73] p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
                         <Mail className="h-5 w-5 text-white" />
                       </div>
                       <div>
@@ -151,7 +151,7 @@ const ConsultationForm = () => {
 
                   <div className="group cursor-pointer">
                     <div className="flex items-center space-x-4 p-4 rounded-2xl transition-all duration-300 hover:bg-slate-50">
-                      <div className="bg-gradient-to-br from-[#22578c] to-[#5e8f1e] p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
+                      <div className="bg-gradient-to-br from-[#22578c] to-[#1e4a73] p-4 rounded-2xl shadow-lg group-hover:shadow-xl transition-all duration-300">
                         <MessageCircle className="h-5 w-5 text-white" />
                       </div>
                       <div>
