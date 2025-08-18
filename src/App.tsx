@@ -1,67 +1,131 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Services from "./components/Services";
-import Approach from "./components/Approach";
-import ConsultationForm from "./components/ConsultationForm";
-import Testimonials from "./components/Testimonials";
+import Hero from "./sections/Hero";
+import About from "./sections/About";
+import Services from "./sections/Services";
+import Approach from "./sections/Approach";
+import ConsultationForm from "./sections/ConsultationForm";
+import Testimonials from "./sections/Testimonials";
 import Footer from "./components/Footer";
-import AboutPage from "./components/AboutPage";
-import DiabetesManagementPage from "./components/DiabetesManagementPage";
-import PodiatryPage from "./components/PodiatryPage";
-import SkinCarePage from "./components/SkinCarePage";
-import GeneralHealthcarePage from "./components/GeneralHealthcarePage";
-import HomeVisitCarePage from "./components/HomeVisitCarePage";
-import PatientResourcesPage from "./components/PatientResourcesPage";
-import ContactUsPage from "./components/ContactUsPage";
-import AppointmentBookingPage from "./components/AppointmentBookingPage";
-import SymptomsSection from "./components/SymptomsSection";
+import AboutPage from "./pages/AboutPage";
+import DiabetesManagementPage from "./pages/DiabetesManagementPage";
+import PodiatryPage from "./pages/PodiatryPage";
+import SkinCarePage from "./pages/SkinCarePage";
+import GeneralHealthcarePage from "./pages/GeneralHealthcarePage";
+import HomeVisitCarePage from "./pages/HomeVisitCarePage";
+import PatientResourcesPage from "./pages/PatientResourcesPage";
+import ContactUsPage from "./pages/ContactUsPage";
+import AppointmentBookingPage from "./pages/AppointmentBookingPage";
+import SymptomsSection from "./sections/SymptomsSection";
+import ChronicDiseaseManagementPage from "./pages/ChronicDiseaseManagementPage";
+import WoundCarePage from "./pages/WoundCarePage";
+import PreventiveCarePage from "./pages/PreventiveCarePage";
 
-function App() {
-  const [currentPage, setCurrentPage] = useState("home");
+interface AppProps {
+  initialPage?: string;
+}
+
+function App({ initialPage = "home" }: AppProps) {
+  const location = useLocation();
+  const navigate = useNavigate();
+  const [currentPage, setCurrentPage] = useState(initialPage);
+
+  useEffect(() => {
+    // Sync current page with URL
+    const pathToPageMap: { [key: string]: string } = {
+      "/": "home",
+      "/about": "about-page",
+      "/general-services/diabetes-management":
+        "general-services/diabetes-management",
+      "/general-services/chronic-disease-management":
+        "general-services/chronic-disease-management",
+      "/general-services/wound-care": "general-services/wound-care",
+      "/general-services/preventive-care": "general-services/preventive-care",
+      "/general-services/podiatry": "general-services/podiatry",
+      "/general-services/skin-care": "general-services/skin-care",
+      "/general-services/general-healthcare":
+        "general-services/general-healthcare",
+      "/general-services/home-visit-care": "general-services/home-visit-care",
+      "/patient-resources": "patient-resources",
+      "/contact-us": "contact-us",
+      "/book-appointment": "book-appointment",
+    };
+
+    setCurrentPage(pathToPageMap[location.pathname] || "home");
+  }, [location.pathname]);
+
+  type PageComponentType = {
+    [key: string]: () => JSX.Element;
+  };
+
+  const pageComponents: PageComponentType = {
+    home: () => (
+      <>
+        <Hero setCurrentPage={setCurrentPage} />
+        <About />
+        <Services setCurrentPage={setCurrentPage} />
+        <SymptomsSection />
+        <Approach />
+        <ConsultationForm />
+        <Testimonials />
+      </>
+    ),
+    "about-page": () => <AboutPage />,
+    "general-services/diabetes-management": () => <DiabetesManagementPage />,
+    "general-services/chronic-disease-management": () => (
+      <ChronicDiseaseManagementPage />
+    ),
+    "general-services/wound-care": () => <WoundCarePage />,
+    "general-services/preventive-care": () => <PreventiveCarePage />,
+    "general-services/podiatry": () => <PodiatryPage />,
+    "general-services/skin-care": () => <SkinCarePage />,
+    "general-services/general-healthcare": () => <GeneralHealthcarePage />,
+    "general-services/home-visit-care": () => <HomeVisitCarePage />,
+    "patient-resources": () => <PatientResourcesPage />,
+    "contact-us": () => <ContactUsPage />,
+    "book-appointment": () => <AppointmentBookingPage />,
+  };
 
   const renderPage = () => {
-    switch (currentPage) {
-      case "about-page":
-        return <AboutPage />;
-      case "diabetes-management":
-        return <DiabetesManagementPage />;
-      case "podiatry":
-        return <PodiatryPage />;
-      case "skin-care":
-        return <SkinCarePage />;
-      case "general-healthcare":
-        return <GeneralHealthcarePage />;
-      case "home-visit-care":
-        return <HomeVisitCarePage />;
-      case "patient-resources":
-        return <PatientResourcesPage />;
-      case "contact-us":
-        return <ContactUsPage />;
-      case "book-appointment":
-        return <AppointmentBookingPage />;
-      case "home":
-      default:
-        return (
-          <>
-            <Hero setCurrentPage={setCurrentPage} />
-            <About />
-            <Services setCurrentPage={setCurrentPage} />
-            <SymptomsSection />
-            <Approach />
-            <ConsultationForm />
-            <Testimonials />
-          </>
-        );
-    }
+    const PageComponent = pageComponents[currentPage] || pageComponents["home"];
+    return PageComponent();
+  };
+
+  const customSetCurrentPage = (page: string) => {
+    // Map page to corresponding route
+    const pageToRouteMap: { [key: string]: string } = {
+      home: "/",
+      "about-page": "/about",
+      "general-services/diabetes-management":
+        "/general-services/diabetes-management",
+      "general-services/chronic-disease-management":
+        "/general-services/chronic-disease-management",
+      "general-services/wound-care": "/general-services/wound-care",
+      "general-services/preventive-care": "/general-services/preventive-care",
+      "general-services/podiatry": "/general-services/podiatry",
+      "general-services/skin-care": "/general-services/skin-care",
+      "general-services/general-healthcare":
+        "/general-services/general-healthcare",
+      "general-services/home-visit-care": "/general-services/home-visit-care",
+      "patient-resources": "/patient-resources",
+      "contact-us": "/contact-us",
+      "book-appointment": "/book-appointment",
+    };
+
+    // Navigate to the corresponding route
+    const route = pageToRouteMap[page] || "/";
+    navigate(route);
+
+    // Update current page state
+    setCurrentPage(page);
   };
 
   return (
     <div className="min-h-screen">
-      <Header currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Header currentPage={currentPage} setCurrentPage={customSetCurrentPage} />
       {renderPage()}
-      <Footer currentPage={currentPage} setCurrentPage={setCurrentPage} />
+      <Footer currentPage={currentPage} setCurrentPage={customSetCurrentPage} />
     </div>
   );
 }

@@ -175,6 +175,42 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                 Our Services
               </button>
               <button
+                onClick={() =>
+                  navigateToPage("general-services/diabetes-management")
+                }
+                className="block text-white/80 hover:text-[#aad6ff] transition-colors text-sm text-left"
+              >
+                Diabetes Management
+              </button>
+              <button
+                onClick={() => navigateToPage("general-services/podiatry")}
+                className="block text-white/80 hover:text-[#aad6ff] transition-colors text-sm text-left"
+              >
+                Podiatry Services
+              </button>
+              <button
+                onClick={() => navigateToPage("general-services/skin-care")}
+                className="block text-white/80 hover:text-[#aad6ff] transition-colors text-sm text-left"
+              >
+                Skin Care Treatments
+              </button>
+              <button
+                onClick={() =>
+                  navigateToPage("general-services/general-healthcare")
+                }
+                className="block text-white/80 hover:text-[#aad6ff] transition-colors text-sm text-left"
+              >
+                General Healthcare
+              </button>
+              <button
+                onClick={() =>
+                  navigateToPage("general-services/home-visit-care")
+                }
+                className="block text-white/80 hover:text-[#aad6ff] transition-colors text-sm text-left"
+              >
+                Home Visit Care
+              </button>
+              <button
                 onClick={() => navigateToPage("patient-resources")}
                 className="block text-white/80 hover:text-[#aad6ff] transition-colors text-sm text-left"
               >
