@@ -17,6 +17,7 @@ import AppointmentBookingPage from "./pages/AppointmentBookingPage";
 import ChronicDiseaseManagementPage from "./pages/ChronicDiseaseManagementPage";
 import WoundCarePage from "./pages/WoundCarePage";
 import PreventiveCarePage from "./pages/PreventiveCarePage";
+import FootUlcerCarePage from "./pages/FootUlcer";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -66,6 +67,10 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <Route
           path="/general-services/preventive-care"
           element={<App initialPage="general-services/preventive-care" />}
+        />
+        <Route
+          path="/foot-diabetics-treatment/foot-ulcer"
+          element={<App initialPage="foot-diabetics-treatment/foot-ulcer" />}
         />
       </Routes>
     </Router>

@@ -1,115 +1,163 @@
-import React from 'react';
-import { Sparkles, Star, Zap, Shield, Calendar, ArrowRight, CheckCircle, Heart, Award, Palette } from 'lucide-react';
+import {
+  Sun,
+  Droplet,
+  Heart,
+  Footprints,
+  ShieldCheck,
+  Target,
+  TrendingUp,
+  Calendar,
+  ArrowRight,
+  CheckCircle,
+  AlertCircle,
+  Stethoscope,
+  Award,
+} from "lucide-react";
+
+import { useState } from "react";
+
 
 const SkinCarePage = () => {
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const scrollToConsultation = () => {
-    const element = document.getElementById('consultation');
+    const element = document.getElementById("consultation");
     if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
+      element.scrollIntoView({ behavior: "smooth" });
     }
   };
 
-  const conditions = [
+   // Service Cards for Carousel
+   const serviceCards = [
     {
-      icon: Sparkles,
-      title: "Skin Discoloration",
-      description: "Treatment for uneven skin tone, dark spots, and pigmentation issues"
+      icon: Stethoscope,
+      title: "General Healthcare",
+      description: "Specialized treatment for diabetic foot wounds",
+      link: "general-services/general-healthcare",
     },
     {
-      icon: Zap,
-      title: "Acne & Infections",
-      description: "Comprehensive care for acne, rashes, and various skin infections"
+      icon: Footprints,
+      title: "Podiatry Services",
+      description: "Targeted therapies to control and eliminate infections",
+      link: "general-services/podiatry",
     },
     {
-      icon: Star,
-      title: "Hyperpigmentation",
-      description: "Advanced treatments for melasma, age spots, and skin dullness"
+      icon: Sun,
+      title: "Skin Care",
+      description: "Relief from nerve pain and numbness in feet",
+      link: "general-services/skin-care",
     },
     {
-      icon: Shield,
-      title: "Diabetic Skin Issues",
-      description: "Specialized care for skin problems related to diabetes and circulation"
-    }
+      icon: ShieldCheck,
+      title: "Diabetes Management",
+      description: "Corrective care for structural foot problems",
+      link: "general-services/diabetes-management",
+    },
   ];
 
-  const whiteningServices = [
-    "Safe and proven medical-grade whitening treatments",
-    "Customized brightening solutions for face, hands, and neck",
-    "Long-term maintenance and care plans",
-    "Combination therapy for optimal results",
-    "Post-treatment care and monitoring",
-    "Skin health assessment and preparation"
+  const conditions = [
+    {
+      icon: Sun,
+      title: "Skin Whitening Treatments",
+      description:
+        "Safe and effective solutions to brighten your complexion and enhance skin radiance.",
+    },
+    {
+      icon: AlertCircle,
+      title: "Treatment for Various Skin Problems",
+      description:
+        "Targeted care for acne, pigmentation, scars, eczema, and other common skin concerns.",
+    },
+    {
+      icon: Droplet,
+      title: "Personalized Skin Health Solutions",
+      description:
+        "Customized skin care plans designed to meet your unique skin type and lifestyle.",
+    },
+  ];
+
+  const services = [
+    "Advanced skin whitening therapies and peels",
+    "Acne treatment and scar reduction",
+    "Pigmentation management and correction",
+    "Hydration and anti-aging therapies",
+    "Nutritional and lifestyle counseling for skin health",
+    "Comprehensive skin analysis and diagnostics",
+    "Sun protection guidance and products",
+    "Routine follow-ups and skin monitoring",
   ];
 
   const whyChooseUs = [
     {
-      icon: Shield,
-      title: "Medical-Grade Treatments",
-      description: "Only FDA-approved, clinically proven treatments for safe and effective results"
+      icon: Target,
+      title: "10+ Years of Experience",
+      description:
+        "Skilled dermatologists with a proven track record in skin care excellence.",
+    },
+    {
+      icon: TrendingUp,
+      title: "Visible Results",
+      description:
+        "Clinically proven treatments that improve your skin’s appearance and health.",
     },
     {
       icon: Heart,
-      title: "Personalized Approach",
-      description: "Tailored skincare plans based on your unique skin type and medical history"
+      title: "Patient-Focused Care",
+      description:
+        "Caring professionals committed to your individual skin health goals.",
     },
-    {
-      icon: Star,
-      title: "Results-Driven Care",
-      description: "Focused on achieving visible improvements with ongoing support and monitoring"
-    }
   ];
 
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-purple-50 to-pink-50 py-20">
+      <section className="py-20 mx-20">
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-                Advanced <span className="text-purple-600">Skin Care</span> & <span className="text-pink-600">Whitening</span> Treatments
+                Expert <span className="text-[#22578c]">Skin Care</span> Treatments & Solutions
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Transform your skin with expert care. We provide targeted treatments for common skin concerns and advanced whitening solutions for radiant, healthy skin.
+                Reveal your best skin with personalized care and advanced treatments designed for lasting results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button 
+                <button
                   onClick={scrollToConsultation}
-                  className="bg-purple-600 text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-700 transition-all duration-300 flex items-center justify-center space-x-2 group"
+                  className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 group"
                 >
                   <Calendar className="h-5 w-5" />
                   <span>Book Skin Consultation</span>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
-                <a 
+                <a
                   href="tel:+1234567890"
-                  className="border-2 border-purple-600 text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-purple-600 hover:text-white transition-all duration-300 text-center"
+                  className="border-2 border-[#22578c] text-[#22578c] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#22578c] hover:text-white transition-all duration-300 text-center"
                 >
-                  Call for Consultation
+                  Call for Urgent Care
                 </a>
               </div>
               <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
                 <div className="flex items-center space-x-3">
-                  <div className="bg-purple-100 p-3 rounded-full">
-                    <Award className="h-6 w-6 text-purple-600" />
+                  <div className="bg-teal-100 p-3 rounded-full">
+                    <Award className="h-6 w-6 text-[#22578c]" />
                   </div>
                   <div>
-                    <p className="font-bold text-gray-800">Medical-Grade</p>
-                    <p className="text-sm text-gray-600">Treatments</p>
-                  </div>
-                </div>
-                <div className="flex items-center space-x-3">
-                  <div className="bg-pink-100 p-3 rounded-full">
-                    <Sparkles className="h-6 w-6 text-pink-600" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-gray-800">Safe</p>
-                    <p className="text-sm text-gray-600">Whitening</p>
+                    <p className="font-bold text-gray-800">10+ Years</p>
+                    <p className="text-sm text-gray-600">Skin Care Expertise</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
                   <div className="bg-blue-100 p-3 rounded-full">
-                    <Heart className="h-6 w-6 text-blue-600" />
+                    <Target className="h-6 w-6 text-blue-600" />
+                  </div>
+                  <div>
+                    <p className="font-bold text-gray-800">Proven</p>
+                    <p className="text-sm text-gray-600">Effective Results</p>
+                  </div>
+                </div>
+                <div className="flex items-center space-x-3">
+                  <div className="bg-green-100 p-3 rounded-full">
+                    <Heart className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
                     <p className="font-bold text-gray-800">Personalized</p>
@@ -121,25 +169,89 @@ const SkinCarePage = () => {
             <div className="lg:w-1/2 lg:pl-12">
               <div className="relative">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-300">
-                  <img 
-                    src="https://images.pexels.com/photos/3985360/pexels-photo-3985360.jpeg?auto=compress&cs=tinysrgb&w=500"
-                    alt="Skin care treatment"
+                  <img
+                    src="/skincare/banner.jpg"
+                    alt="Skin consultation"
                     className="w-full h-80 object-cover rounded-2xl mb-4"
                   />
                   <div className="text-center">
-                    <h3 className="text-2xl font-bold text-gray-800 mb-2">Professional Skin Care</h3>
-                    <p className="text-purple-600 font-semibold mb-4">Advanced Dermatological Treatments</p>
+                    <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                      Comprehensive Skin Care
+                    </h3>
+                    <p className="text-[#22578c] font-semibold mb-4">
+                      Personalized Treatments & Expert Guidance
+                    </p>
                     <div className="flex justify-center space-x-4 text-sm text-gray-600">
                       <span>Skin Whitening</span>
                       <span>•</span>
-                      <span>Acne Treatment</span>
+                      <span>Problem Treatment</span>
                       <span>•</span>
-                      <span>Anti-Aging</span>
+                      <span>Healthy Skin Solutions</span>
                     </div>
                   </div>
                 </div>
-                <div className="absolute -top-4 -right-4 bg-purple-600 text-white p-4 rounded-full shadow-lg">
-                  <Sparkles className="h-8 w-8" />
+                <div className="absolute -top-4 -right-4 bg-[#22578c] text-white p-4 rounded-full shadow-lg">
+                  <Sun className="h-8 w-8" />
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* About Skin Care */}
+      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              <div className="space-y-8">
+                <div>
+                  <span className="bg-teal-50 text-[#22578c] text-sm font-semibold px-1 py-2 rounded-full">
+                    Understanding Skin Care
+                  </span>
+                </div>
+                <h2 className="text-4xl font-bold text-gray-800 leading-tight">
+                  A Holistic Approach to <br />
+                  <span className="text-[#22578c]">Skin Health</span>
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Skin care includes treatments, lifestyle and nutrition guidance, and medical supervision to enhance your skin’s natural beauty and health.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div className="text-3xl font-bold text-[#22578c] mb-2">95%</div>
+                    <p className="text-gray-600">
+                      of skin concerns can be improved with professional care and customized treatments
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div className="text-3xl font-bold text-[#22578c] mb-2">10+</div>
+                    <p className="text-gray-600">
+                      years of experience helping clients achieve vibrant skin
+                    </p>
+                  </div>
+                </div>
+              </div>
+              <div className="relative flex justify-center items-center">
+                <div className="bg-white rounded-3xl shadow-lg p-1 w-full">
+                  <img
+                    src="/skincare/about.jpg"
+                    alt="Skin care consultation"
+                    className="w-full rounded-2xl object-cover h-[500px]"
+                  />
+                </div>
+                <div className="absolute -bottom-1 -left-8 bg-white p-6 rounded-2xl shadow-lg max-w-[280px]">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="bg-teal-100 p-3 rounded-xl">
+                      <CheckCircle className="h-6 w-6 text-teal-600" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800">
+                      Personalized Care
+                    </h3>
+                  </div>
+                  <p className="text-gray-600">
+                    We customize every treatment plan to your unique skin type and goals for optimal results.
+                  </p>
                 </div>
               </div>
             </div>
@@ -152,22 +264,31 @@ const SkinCarePage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">What We Treat</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                What <span className="text-[#22578c]"> We Treat</span>
+              </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive skin care solutions for a wide range of dermatological concerns
+                Comprehensive skin care addressing all your concerns with effective treatments
               </p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
+            <div className="grid md:grid-cols-3 gap-8">
               {conditions.map((condition, index) => {
                 const IconComponent = condition.icon;
                 return (
-                  <div key={index} className="bg-white rounded-2xl p-6 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300 text-center">
-                    <div className="bg-purple-100 w-16 h-16 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <IconComponent className="h-8 w-8 text-purple-600" />
+                  <div
+                    key={index}
+                    className="bg-white rounded-2xl p-8 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300"
+                  >
+                    <div className="bg-[#22578c] w-16 h-16 rounded-2xl flex items-center justify-center mb-6">
+                      <IconComponent className="h-8 w-8 text-white" />
                     </div>
-                    <h3 className="text-lg font-bold text-gray-800 mb-4">{condition.title}</h3>
-                    <p className="text-gray-600 text-sm leading-relaxed">{condition.description}</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                      {condition.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {condition.description}
+                    </p>
                   </div>
                 );
               })}
@@ -176,83 +297,29 @@ const SkinCarePage = () => {
         </div>
       </section>
 
-      {/* Skin Whitening Services */}
+      {/* Our Services */}
       <section className="py-20 bg-gray-50">
-        <div className="container mx-auto px-4">
-          <div className="max-w-6xl mx-auto">
-            <div className="grid lg:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-6">Professional Skin Whitening Services</h2>
-                <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                  Achieve the radiant, even-toned skin you've always wanted with our safe, medical-grade whitening treatments.
-                </p>
-                
-                <div className="space-y-4">
-                  {whiteningServices.map((service, index) => (
-                    <div key={index} className="flex items-start space-x-4">
-                      <div className="bg-purple-600 rounded-full p-1 mt-1 flex-shrink-0">
-                        <CheckCircle className="h-4 w-4 text-white" />
-                      </div>
-                      <p className="text-gray-700 leading-relaxed">{service}</p>
-                    </div>
-                  ))}
-                </div>
-              </div>
-              
-              <div>
-                <img 
-                  src="https://images.pexels.com/photos/3985329/pexels-photo-3985329.jpeg?auto=compress&cs=tinysrgb&w=600"
-                  alt="Skin whitening treatment"
-                  className="w-full h-96 object-cover rounded-2xl shadow-xl"
-                />
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Treatment Process */}
-      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Our Treatment Process</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                Our <span className="text-[#22578c]">Skin Care Services</span> Include
+              </h2>
               <p className="text-xl text-gray-600">
-                A systematic approach to achieving your skin goals safely and effectively
+                Extensive range of treatments and care plans for healthy, glowing skin
               </p>
             </div>
 
-            <div className="grid md:grid-cols-4 gap-8">
-              <div className="text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-purple-600 font-bold text-xl">1</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Consultation</h3>
-                <p className="text-gray-600 text-sm">Comprehensive skin assessment and treatment planning</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-purple-600 font-bold text-xl">2</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Preparation</h3>
-                <p className="text-gray-600 text-sm">Skin preparation and pre-treatment care instructions</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-purple-600 font-bold text-xl">3</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Treatment</h3>
-                <p className="text-gray-600 text-sm">Professional application of medical-grade treatments</p>
-              </div>
-              
-              <div className="text-center">
-                <div className="bg-purple-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-6">
-                  <span className="text-purple-600 font-bold text-xl">4</span>
-                </div>
-                <h3 className="text-lg font-bold text-gray-800 mb-3">Follow-up</h3>
-                <p className="text-gray-600 text-sm">Ongoing monitoring and maintenance care</p>
+            <div className="bg-white rounded-3xl p-8 shadow-lg">
+              <div className="grid md:grid-cols-2 gap-6">
+                {services.map((service, index) => (
+                  <div key={index} className="flex items-start space-x-4">
+                    <div className="bg-[#22578c] rounded-full p-1 mt-1 flex-shrink-0">
+                      <CheckCircle className="h-4 w-4 text-white" />
+                    </div>
+                    <p className="text-gray-700 leading-relaxed">{service}</p>
+                  </div>
+                ))}
               </div>
             </div>
           </div>
@@ -260,13 +327,15 @@ const SkinCarePage = () => {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold text-gray-800 mb-4">Why Choose Our Skin Care Services</h2>
+              <h2 className="text-4xl font-bold text-gray-800 mb-4">
+                Why Choose Our <span className="text-[#22578c]">Skin Care</span>
+              </h2>
               <p className="text-xl text-gray-600">
-                Experience the difference that medical expertise makes in achieving beautiful, healthy skin
+                Experience personalized, expert care focused on your skin health and confidence
               </p>
             </div>
 
@@ -274,12 +343,16 @@ const SkinCarePage = () => {
               {whyChooseUs.map((reason, index) => {
                 const IconComponent = reason.icon;
                 return (
-                  <div key={index} className="bg-white rounded-2xl p-8 shadow-lg text-center">
-                    <div className="bg-purple-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
-                      <IconComponent className="h-10 w-10 text-purple-600" />
+                  <div key={index} className="text-center">
+                    <div className="bg-blue-100 w-20 h-20 rounded-full flex items-center justify-center mx-auto mb-6">
+                      <IconComponent className="h-10 w-10 text-[#22578c]" />
                     </div>
-                    <h3 className="text-xl font-bold text-gray-800 mb-4">{reason.title}</h3>
-                    <p className="text-gray-600 leading-relaxed">{reason.description}</p>
+                    <h3 className="text-xl font-bold text-gray-800 mb-4">
+                      {reason.title}
+                    </h3>
+                    <p className="text-gray-600 leading-relaxed">
+                      {reason.description}
+                    </p>
                   </div>
                 );
               })}
@@ -288,30 +361,128 @@ const SkinCarePage = () => {
         </div>
       </section>
 
-      {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-purple-600 to-pink-600">
+        {/* Service Cards Carousel */}
+
+        <section className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white">
         <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-4xl font-bold mb-6">Glow with Confidence</h2>
-            <p className="text-xl mb-8 leading-relaxed opacity-90">
-              Transform your skin with our expert care. Book your personalized skin consultation and discover the treatments that are right for you.
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Our <span className="text-[#22578c]">Comprehensive</span> Services
+            </h2>
+            <p className="text-xl text-[#4c5663] max-w-3xl mx-auto">
+              Holistic care tailored to your unique diabetic foot health needs
             </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {serviceCards.map((card, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() => setActiveServiceIndex(index)}
+                  className={`p-6 rounded-2xl transition-all duration-300 cursor-pointer ${
+                    activeServiceIndex === index
+                      ? "bg-[#22578c] text-white shadow-xl"
+                      : "bg-white text-gray-800 hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center space-x-6">
+                    <div
+                      className={`p-4 rounded-xl ${
+                        activeServiceIndex === index
+                          ? "bg-white/20"
+                          : "bg-[#22578c]/10"
+                      }`}
+                    >
+                      <card.icon
+                        className={`h-8 w-8 ${
+                          activeServiceIndex === index
+                            ? "text-white"
+                            : "text-[#22578c]"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <h3
+                        className={`text-xl font-bold ${
+                          activeServiceIndex === index
+                            ? "text-white"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        {card.title}
+                      </h3>
+                      <p
+                        className={`text-sm ${
+                          activeServiceIndex === index
+                            ? "text-white/80"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="hidden lg:block">
+              <div className="bg-white rounded-3xl p-8 shadow-2xl">
+                <img
+                  src={
+                    serviceCards[activeServiceIndex].title ===
+                    "General Healthcare"
+                      ? "/healthcare-checkup/1.jpg"
+                      : serviceCards[activeServiceIndex].title ===
+                        "Podiatry Services"
+                      ? "/Podiatry/banner.jpg"
+                      : serviceCards[activeServiceIndex].title === "Skin Care"
+                      ? "/skincare/banner.jpg"
+                      : "/diabetes-banner.jpg"
+                  }
+                  alt={serviceCards[activeServiceIndex].title}
+                  className="w-full h-[400px] object-cover rounded-2xl"
+                />
+                <div className="mt-6 text-center">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    {serviceCards[activeServiceIndex].title}
+                  </h3>
+                  <a
+                    href={serviceCards[activeServiceIndex].link}
+                    className="text-[#5e8f1e] font-medium hover:underline"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Call to Action */}
+      <section className="py-20" style={{ background: "#f7f9fa" }}>
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2 className="text-4xl font-bold mb-6" style={{ color: "#22578c" }}>
+              Ready to Enhance Your Skin’s Health?
+            </h2>
+            <p className="text-xl mb-8 leading-relaxed opacity-90" style={{ color: "#000000" }}>
+              Don’t wait to reveal glowing, healthy skin. Book your personalized consultation today.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
+              <button
                 onClick={scrollToConsultation}
-                className="bg-white text-purple-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center space-x-2 group"
+                className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 group"
               >
                 <Calendar className="h-5 w-5" />
-                <span>Book Your Skin Consultation Today</span>
+                <span>Book Skin Consultation</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
-              
-              <a 
+              <a
                 href="tel:+1234567890"
-                className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-purple-600 transition-all duration-300 text-center"
+                className="border-2 border-[#22578c] text-[#22578c] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#22578c] hover:text-white transition-all duration-300 text-center"
               >
-                Call for Consultation
+                Call for Urgent Care
               </a>
             </div>
           </div>

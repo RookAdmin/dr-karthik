@@ -1,17 +1,22 @@
 import {
   Footprints,
-  Shield,
   Heart,
-  Zap,
+  Target,
   Calendar,
   ArrowRight,
+  Sun,
+  ShieldCheck,
   CheckCircle,
+  AlertTriangle,
   Award,
-  Target,
-  TrendingUp,
+  Stethoscope,
+  Activity,
 } from "lucide-react";
 
+import { useState } from "react";
+
 const PodiatryPage = () => {
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const scrollToConsultation = () => {
     const element = document.getElementById("consultation");
     if (element) {
@@ -19,56 +24,83 @@ const PodiatryPage = () => {
     }
   };
 
+  // Service Cards for Carousel
+  const serviceCards = [
+    {
+      icon: Stethoscope,
+      title: "General Healthcare",
+      description: "Specialized treatment for diabetic foot wounds",
+      link: "general-services/general-healthcare",
+    },
+    {
+      icon: Footprints,
+      title: "Podiatry Services",
+      description: "Targeted therapies to control and eliminate infections",
+      link: "general-services/podiatry",
+    },
+    {
+      icon: Sun,
+      title: "Skin Care",
+      description: "Relief from nerve pain and numbness in feet",
+      link: "general-services/skin-care",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Diabetes Management",
+      description: "Corrective care for structural foot problems",
+      link: "general-services/diabetes-management",
+    },
+  ];
+
   const conditions = [
     {
       icon: Footprints,
-      title: "Diabetic Foot Ulcers",
+      title: "Diabetic Foot Care",
       description:
-        "Specialized treatment for diabetic foot ulcers with advanced healing protocols",
+        "Specialized care for diabetic foot conditions including ulcers and neuropathy",
     },
     {
-      icon: Shield,
-      title: "Wound Management",
+      icon: Footprints,
+      title: "Sports Injuries",
       description:
-        "Expert care for foot infections, cuts, and wounds to prevent complications",
+        "Treatment for athletic foot and ankle injuries, sprains, and stress fractures",
     },
     {
-      icon: Zap,
-      title: "Neuropathy Treatment",
+      icon: AlertTriangle,
+      title: "Foot Deformities",
       description:
-        "Comprehensive management of diabetic neuropathy causing numbness and pain",
+        "Care for bunions, hammertoes, flat feet, and other structural abnormalities",
     },
   ];
 
   const services = [
-    "Professional wound debridement and dressing",
-    "Advanced ulcer management and healing protocols",
-    "Custom footwear recommendations and fitting",
-    "Comprehensive preventive foot examinations",
-    "Diabetic foot screening and risk assessment",
-    "Nail care and ingrown toenail treatment",
-    "Callus and corn removal",
-    "Foot infection treatment and prevention",
+    "Comprehensive foot and ankle examinations",
+    "Custom orthotics and footwear recommendations",
+    "Diabetic foot care and wound management",
+    "Sports injury treatment and rehabilitation",
+    "Surgical correction of foot deformities",
+    "Ingrown toenail treatment",
+    "Heel pain and plantar fasciitis care",
+    "Pediatric foot care services",
   ];
 
   const whyChooseUs = [
     {
       icon: Target,
-      title: "11+ Years of Experience",
-      description:
-        "Extensive expertise in diabetic foot care with proven healing outcomes",
+      title: "15+ Years Experience",
+      description: "Extensive expertise in podiatric medicine and foot surgery",
     },
     {
-      icon: TrendingUp,
-      title: "Advanced Treatments",
+      icon: Stethoscope,
+      title: "Advanced Treatment",
       description:
-        "Cutting-edge wound healing techniques and preventive strategies",
+        "State-of-the-art podiatric care using latest medical technologies",
     },
     {
       icon: Heart,
-      title: "Patient-Centered Care",
+      title: "Patient-Focused Care",
       description:
-        "Compassionate approach focusing on individual foot health needs",
+        "Personalized treatment plans tailored to your foot health needs",
     },
   ];
 
@@ -80,13 +112,13 @@ const PodiatryPage = () => {
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-                Expert <span className="text-[#22578c]">Diabetic Foot</span>{" "}
-                Care & Management
+                Expert <span className="text-[#22578c]">Podiatry</span> Care &
+                Treatment
               </h1>
-              <p className="text-lg text-gray-600 mb-8 leading-relaxed">
-                Prevent serious foot complications from diabetes. Our
-                specialized podiatry care ensures quick healing, reduces
-                infection risks, and maintains your mobility.
+              <p className="text-xl text-gray-600 mb-8 leading-relaxed">
+                Advanced foot and ankle care with personalized treatment plans.
+                We help you maintain healthy feet and resolve painful
+                conditions.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button
@@ -94,7 +126,7 @@ const PodiatryPage = () => {
                   className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 group"
                 >
                   <Calendar className="h-5 w-5" />
-                  <span>Book Foot Care Consultation</span>
+                  <span>Book Podiatry Consultation</span>
                   <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
                 </button>
                 <a
@@ -110,8 +142,8 @@ const PodiatryPage = () => {
                     <Award className="h-6 w-6 text-[#22578c]" />
                   </div>
                   <div>
-                    <p className="font-bold text-gray-800">11+ Years</p>
-                    <p className="text-sm text-gray-600">Foot Care Expertise</p>
+                    <p className="font-bold text-gray-800">15+ Years</p>
+                    <p className="text-sm text-gray-600">Podiatry Expertise</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -120,7 +152,7 @@ const PodiatryPage = () => {
                   </div>
                   <div>
                     <p className="font-bold text-gray-800">Advanced</p>
-                    <p className="text-sm text-gray-600">Treatments</p>
+                    <p className="text-sm text-gray-600">Treatment</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
@@ -128,8 +160,8 @@ const PodiatryPage = () => {
                     <Heart className="h-6 w-6 text-green-600" />
                   </div>
                   <div>
-                    <p className="font-bold text-gray-800">Personalized</p>
-                    <p className="text-sm text-gray-600">Care Plans</p>
+                    <p className="font-bold text-gray-800">Patient-Focused</p>
+                    <p className="text-sm text-gray-600">Care</p>
                   </div>
                 </div>
               </div>
@@ -138,8 +170,8 @@ const PodiatryPage = () => {
               <div className="relative">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-300">
                   <img
-                    src="https://images.pexels.com/photos/7659564/pexels-photo-7659564.jpeg?auto=compress&cs=tinysrgb&w=500"
-                    alt="Diabetic foot care examination"
+                    src="/Podiatry/banner.jpg"
+                    alt="Podiatry consultation"
                     className="w-full h-80 object-cover rounded-2xl mb-4"
                   />
                   <div className="text-center">
@@ -147,19 +179,19 @@ const PodiatryPage = () => {
                       Comprehensive Foot Care
                     </h3>
                     <p className="text-[#22578c] font-semibold mb-4">
-                      Advanced Diabetic Foot Treatment
+                      Advanced Podiatric Treatment
                     </p>
                     <div className="flex justify-center space-x-4 text-sm text-gray-600">
-                      <span>Wound Healing</span>
+                      <span>Foot Health</span>
                       <span>•</span>
-                      <span>Infection Prevention</span>
+                      <span>Custom Orthotics</span>
                       <span>•</span>
-                      <span>Mobility Preservation</span>
+                      <span>Surgery</span>
                     </div>
                   </div>
                 </div>
                 <div className="absolute -top-4 -right-4 bg-[#22578c] text-white p-4 rounded-full shadow-lg">
-                  <Footprints className="h-8 w-8" />
+                  <Activity className="h-8 w-8" />
                 </div>
               </div>
             </div>
@@ -167,7 +199,7 @@ const PodiatryPage = () => {
         </div>
       </section>
 
-      {/* About Diabetic Foot Care */}
+      {/* About Podiatry Care */}
       <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
@@ -176,35 +208,36 @@ const PodiatryPage = () => {
               <div className="space-y-8">
                 <div>
                   <span className="bg-teal-50 text-[#22578c] text-sm font-semibold px-1 py-2 rounded-full">
-                    Understanding Diabetic Foot Care
+                    Understanding Podiatry Care
                   </span>
                 </div>
                 <h2 className="text-4xl font-bold text-gray-800 leading-tight">
                   A Holistic Approach to <br />
-                  <span className="text-[#22578c]">Foot Health</span>
+                  <span className="text-[#22578c]">Foot and Ankle Care</span>
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Diabetic foot care is more than treating wounds. It's a
-                  comprehensive approach that includes prevention, early
-                  detection, specialized treatment, and ongoing management to
-                  preserve mobility and prevent serious complications.
+                  Podiatry care is essential for maintaining the health of your
+                  feet and ankles, especially if you have diabetes or other
+                  conditions that affect your circulation and nerve function.
+                  Our comprehensive podiatry services are designed to prevent,
+                  diagnose, and treat a wide range of foot and ankle disorders.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div className="text-3xl font-bold text-[#22578c] mb-2">
-                      80%
+                      90%
                     </div>
                     <p className="text-gray-600">
-                      of diabetic foot complications can be prevented with
-                      proper care
+                      of foot and ankle conditions can be effectively managed
+                      with proper care and treatment
                     </p>
                   </div>
                   <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
                     <div className="text-3xl font-bold text-[#22578c] mb-2">
-                      11+
+                      15+
                     </div>
                     <p className="text-gray-600">
-                      years of experience in diabetic foot care and healing
+                      years of experience in providing expert podiatric care
                     </p>
                   </div>
                 </div>
@@ -213,8 +246,8 @@ const PodiatryPage = () => {
               <div className="relative flex justify-center items-center">
                 <div className="bg-white rounded-3xl shadow-lg p-1 w-full">
                   <img
-                    src="https://images.pexels.com/photos/7088530/pexels-photo-7088530.jpeg?auto=compress&cs=tinysrgb&w=800"
-                    alt="Diabetic foot care examination"
+                    src="/Podiatry/about.jpg"
+                    alt="Doctor explaining diabetes management"
                     className="w-full rounded-2xl object-cover h-[500px]"
                   />
                 </div>
@@ -222,6 +255,7 @@ const PodiatryPage = () => {
                 <div className="absolute -bottom-1 -left-8 bg-white p-6 rounded-2xl shadow-lg max-w-[280px]">
                   <div className="flex items-center space-x-4 mb-4">
                     <div className="bg-teal-100 p-3 rounded-xl">
+                      {/* Replace with actual icon if using an icon library */}
                       <svg
                         className="h-6 w-6 text-teal-600"
                         fill="none"
@@ -243,12 +277,12 @@ const PodiatryPage = () => {
                       </svg>
                     </div>
                     <h3 className="text-xl font-bold text-gray-800">
-                      Preventive Care
+                      Personalized Care
                     </h3>
                   </div>
                   <p className="text-gray-600">
-                    Customized foot care strategies tailored to individual
-                    diabetic needs
+                    Every patient receives a customized treatment plan tailored
+                    to their specific needs and lifestyle
                   </p>
                 </div>
               </div>
@@ -263,11 +297,11 @@ const PodiatryPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                What <span className="text-[#22578c]">We Treat</span>
+                What <span className="text-[#22578c]"> We Treat</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive diabetic foot care addressing critical conditions
-                and preventing serious complications
+                Comprehensive podiatry care addressing all aspects of foot and
+                ankle health
               </p>
             </div>
 
@@ -306,8 +340,8 @@ const PodiatryPage = () => {
                 Include
               </h2>
               <p className="text-xl text-gray-600">
-                Comprehensive foot care designed to prevent complications and
-                maintain mobility
+                Comprehensive care designed to maintain optimal foot and ankle
+                health
               </p>
             </div>
 
@@ -333,11 +367,11 @@ const PodiatryPage = () => {
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                Why Choose Our <span className="text-[#22578c]">Foot Care</span>
+                Why Choose Our <span className="[#22578c]">Podiatry Care</span>
               </h2>
               <p className="text-xl text-gray-600">
-                Experience specialized, compassionate diabetic foot care that
-                makes a difference
+                Experience the difference that specialized, compassionate
+                podiatry management can make
               </p>
             </div>
 
@@ -363,6 +397,104 @@ const PodiatryPage = () => {
         </div>
       </section>
 
+      {/* Service Cards Carousel */}
+
+      <section className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Our <span className="text-[#22578c]">Comprehensive</span> Services
+            </h2>
+            <p className="text-xl text-[#4c5663] max-w-3xl mx-auto">
+              Holistic care tailored to your unique diabetic foot health needs
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {serviceCards.map((card, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() => setActiveServiceIndex(index)}
+                  className={`p-6 rounded-2xl transition-all duration-300 cursor-pointer ${
+                    activeServiceIndex === index
+                      ? "bg-[#22578c] text-white shadow-xl"
+                      : "bg-white text-gray-800 hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center space-x-6">
+                    <div
+                      className={`p-4 rounded-xl ${
+                        activeServiceIndex === index
+                          ? "bg-white/20"
+                          : "bg-[#22578c]/10"
+                      }`}
+                    >
+                      <card.icon
+                        className={`h-8 w-8 ${
+                          activeServiceIndex === index
+                            ? "text-white"
+                            : "text-[#22578c]"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <h3
+                        className={`text-xl font-bold ${
+                          activeServiceIndex === index
+                            ? "text-white"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        {card.title}
+                      </h3>
+                      <p
+                        className={`text-sm ${
+                          activeServiceIndex === index
+                            ? "text-white/80"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="hidden lg:block">
+              <div className="bg-white rounded-3xl p-8 shadow-2xl">
+                <img
+                  src={
+                    serviceCards[activeServiceIndex].title ===
+                    "General Healthcare"
+                      ? "/healthcare-checkup/1.jpg"
+                      : serviceCards[activeServiceIndex].title ===
+                        "Podiatry Services"
+                      ? "/Podiatry/banner.jpg"
+                      : serviceCards[activeServiceIndex].title === "Skin Care"
+                      ? "/skincare/banner.jpg"
+                      : "/diabetes-banner.jpg"
+                  }
+                  alt={serviceCards[activeServiceIndex].title}
+                  className="w-full h-[400px] object-cover rounded-2xl"
+                />
+                <div className="mt-6 text-center">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    {serviceCards[activeServiceIndex].title}
+                  </h3>
+                  <a
+                    href={serviceCards[activeServiceIndex].link}
+                    className="text-[#5e8f1e] font-medium hover:underline"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Call to Action */}
       <section className="py-20" style={{ background: "#f7f9fa" }}>
         <div className="container mx-auto px-4">
@@ -371,14 +503,15 @@ const PodiatryPage = () => {
               className="text-4xl font-bold mb-6"
               style={{ color: "#22578c" }}
             >
-              Ready to Protect Your Foot Health?
+              Ready to Manage Your Foot Health Effectively?
             </h2>
             <p
               className="text-xl mb-8 leading-relaxed opacity-90"
               style={{ color: "#000000" }}
             >
-              Don't let diabetic foot complications limit your mobility. Take
-              the first step towards comprehensive foot care today.
+              Don't let foot and ankle problems affect your quality of life.
+              Take the first step towards better health with our expert podiatry
+              care.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
               <button
@@ -386,7 +519,7 @@ const PodiatryPage = () => {
                 className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 group"
               >
                 <Calendar className="h-5 w-5" />
-                <span>Book Foot Care Consultation</span>
+                <span>Book Podiatry Consultation</span>
                 <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
               </button>
               <a

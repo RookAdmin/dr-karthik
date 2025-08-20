@@ -285,44 +285,57 @@ const AboutPage = () => {
       </section>
 
       {/* Call to Action */}
-      <section className="py-20 bg-gradient-to-br from-teal-600 to-blue-600">
-        <div className="container mx-auto px-4">
-          <div className="max-w-4xl mx-auto text-center text-white">
-            <h2 className="text-4xl font-bold mb-6">Ready to Start Your Health Journey?</h2>
-            <p className="text-xl mb-8 leading-relaxed opacity-90">
-              Whether you're struggling with uncontrolled diabetes or seeking advanced skin treatments, 
-              I'm here to help. Let's take the first step toward better health together.
-            </p>
-            
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button 
-                onClick={scrollToConsultation}
-                className="bg-white text-teal-600 px-8 py-4 rounded-full text-lg font-semibold hover:bg-gray-100 transition-all duration-300 flex items-center justify-center space-x-2 group"
-              >
-                <Calendar className="h-5 w-5" />
-                <span>Schedule a Consultation</span>
-                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-              </button>
-              
-              <a 
-                href="tel:+1234567890"
-                className="border-2 border-white text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-white hover:text-teal-600 transition-all duration-300 text-center"
-              >
-                Call Now
-              </a>
-            </div>
+    
+<section className="py-20 bg-white">
+  <div className="container mx-auto px-4">
+    <div className="max-w-4xl mx-auto text-center text-black">
+      
+      <h2 className="text-4xl font-bold mb-6">
+        Ready to Start Your Health Journey?
+      </h2>
+      
+      <p className="text-xl mb-8 leading-relaxed opacity-90">
+        Whether you're struggling with uncontrolled diabetes or seeking advanced skin treatments, 
+        I'm here to help. Let's take the first step toward better health together.
+      </p>
+      
+      {/* Buttons */}
+      <div className="flex flex-col sm:flex-row gap-4 justify-center">
+        
+        {/* Primary Button */}
+        <button 
+          onClick={scrollToConsultation}
+          className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#1c466f] transition-all duration-300 flex items-center justify-center space-x-2 group"
+        >
+          <Calendar className="h-5 w-5" />
+          <span>Schedule a Consultation</span>
+          <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+        </button>
+        
+        {/* Secondary Button */}
+        <a 
+          href="tel:+1234567890"
+          className="border-2 border-[#22578c] text-[#22578c] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#22578c] hover:text-white transition-all duration-300 text-center"
+        >
+          Call Now
+        </a>
+      </div>
 
-            <div className="mt-12 pt-8 border-t border-white/20">
-              <div className="flex items-center justify-center space-x-4">
-                <div className="w-16 h-0.5 bg-white/30"></div>
-                <p className="text-lg font-semibold">Dr. Karthick Palanisamy</p>
-                <div className="w-16 h-0.5 bg-white/30"></div>
-              </div>
-              <p className="text-white/80 mt-2">Your Partner in Health & Wellness</p>
-            </div>
-          </div>
+      {/* Footer */}
+      <div className="mt-12 pt-8 border-t border-black/20">
+        <div className="flex items-center justify-center space-x-4">
+          <div className="w-16 h-0.5 bg-black/30"></div>
+          <p className="text-lg font-semibold">Dr. Karthick Palanisamy</p>
+          <div className="w-16 h-0.5 bg-black/30"></div>
         </div>
-      </section>
+        <p className="text-black/70 mt-2">
+          Your Partner in Health & Wellness
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
     </div>
   );
 };

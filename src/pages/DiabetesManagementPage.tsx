@@ -1,22 +1,58 @@
 import {
   Activity,
+  Footprints,
   Heart,
   Target,
   TrendingUp,
   Calendar,
   ArrowRight,
   CheckCircle,
+  Stethoscope,
+  Sun,
+  ShieldCheck,
   AlertTriangle,
   Award,
 } from "lucide-react";
+import { useState } from "react";
+
 
 const DiabetesManagementPage = () => {
+  const [activeServiceIndex, setActiveServiceIndex] = useState(0);
   const scrollToConsultation = () => {
     const element = document.getElementById("consultation");
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+
+    // Service Cards for Carousel
+    const serviceCards = [
+      {
+        icon: Stethoscope,
+        title: "General Healthcare",
+        description: "Specialized treatment for diabetic foot wounds",
+        link: "general-services/general-healthcare",
+      },
+      {
+        icon: Footprints,
+        title: "Podiatry Services",
+        description: "Targeted therapies to control and eliminate infections",
+        link: "general-services/podiatry",
+      },
+      {
+        icon: Sun,
+        title: "Skin Care",
+        description: "Relief from nerve pain and numbness in feet",
+        link: "general-services/skin-care",
+      },
+      {
+        icon: ShieldCheck,
+        title: "Diabetes Management",
+        description: "Corrective care for structural foot problems",
+        link: "general-services/diabetes-management",
+      },
+    ];
 
   const conditions = [
     {
@@ -137,7 +173,7 @@ const DiabetesManagementPage = () => {
               <div className="relative">
                 <div className="bg-white rounded-3xl shadow-2xl p-8 transform hover:scale-105 transition-transform duration-300">
                   <img
-                    src="https://images.pexels.com/photos/6823568/pexels-photo-6823568.jpeg?auto=compress&cs=tinysrgb&w=500"
+                    src="/diabetes-banner.jpg"
                     alt="Diabetes management consultation"
                     className="w-full h-80 object-cover rounded-2xl mb-4"
                   />
@@ -343,6 +379,105 @@ const DiabetesManagementPage = () => {
         </div>
       </section>
 
+   {/* Service Cards Carousel */}
+
+   <section className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white">
+        <div className="container mx-auto px-4">
+          <div className="text-center mb-16">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">
+              Our <span className="text-[#22578c]">Comprehensive</span> Services
+            </h2>
+            <p className="text-xl text-[#4c5663] max-w-3xl mx-auto">
+              Holistic care tailored to your unique diabetic foot health needs
+            </p>
+          </div>
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              {serviceCards.map((card, index) => (
+                <div
+                  key={index}
+                  onMouseEnter={() => setActiveServiceIndex(index)}
+                  className={`p-6 rounded-2xl transition-all duration-300 cursor-pointer ${
+                    activeServiceIndex === index
+                      ? "bg-[#22578c] text-white shadow-xl"
+                      : "bg-white text-gray-800 hover:bg-gray-50"
+                  }`}
+                >
+                  <div className="flex items-center space-x-6">
+                    <div
+                      className={`p-4 rounded-xl ${
+                        activeServiceIndex === index
+                          ? "bg-white/20"
+                          : "bg-[#22578c]/10"
+                      }`}
+                    >
+                      <card.icon
+                        className={`h-8 w-8 ${
+                          activeServiceIndex === index
+                            ? "text-white"
+                            : "text-[#22578c]"
+                        }`}
+                      />
+                    </div>
+                    <div>
+                      <h3
+                        className={`text-xl font-bold ${
+                          activeServiceIndex === index
+                            ? "text-white"
+                            : "text-gray-800"
+                        }`}
+                      >
+                        {card.title}
+                      </h3>
+                      <p
+                        className={`text-sm ${
+                          activeServiceIndex === index
+                            ? "text-white/80"
+                            : "text-gray-500"
+                        }`}
+                      >
+                        {card.description}
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="hidden lg:block">
+              <div className="bg-white rounded-3xl p-8 shadow-2xl">
+                <img
+                  src={
+                    serviceCards[activeServiceIndex].title ===
+                    "General Healthcare"
+                      ? "/healthcare-checkup/1.jpg"
+                      : serviceCards[activeServiceIndex].title ===
+                        "Podiatry Services"
+                      ? "/Podiatry/banner.jpg"
+                      : serviceCards[activeServiceIndex].title === "Skin Care"
+                      ? "/skincare/banner.jpg"
+                      : "/diabetes-banner.jpg"
+                  }
+                  alt={serviceCards[activeServiceIndex].title}
+                  className="w-full h-[400px] object-cover rounded-2xl"
+                />
+                <div className="mt-6 text-center">
+                  <h3 className="text-2xl font-bold text-gray-800 mb-2">
+                    {serviceCards[activeServiceIndex].title}
+                  </h3>
+                  <a
+                    href={serviceCards[activeServiceIndex].link}
+                    className="text-[#5e8f1e] font-medium hover:underline"
+                  >
+                    Learn More
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      
       {/* Call to Action */}
    <section className="py-20" style={{ background: "#f7f9fa" }}>
   <div className="container mx-auto px-4">

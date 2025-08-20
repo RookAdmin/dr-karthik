@@ -3,7 +3,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Header from "./components/Header";
 import Hero from "./sections/Hero";
 import About from "./sections/About";
-import Services from "./sections/Services";
+// import Services from "./sections/Services";
+import PremiumServices from "./sections/PremiumServices";
 import Approach from "./sections/Approach";
 import ConsultationForm from "./sections/ConsultationForm";
 import Testimonials from "./sections/Testimonials";
@@ -21,6 +22,7 @@ import SymptomsSection from "./sections/SymptomsSection";
 import ChronicDiseaseManagementPage from "./pages/ChronicDiseaseManagementPage";
 import WoundCarePage from "./pages/WoundCarePage";
 import PreventiveCarePage from "./pages/PreventiveCarePage";
+import FootUlcerCarePage from "./pages/FootUlcer";
 
 interface AppProps {
   initialPage?: string;
@@ -50,6 +52,8 @@ function App({ initialPage = "home" }: AppProps) {
       "/patient-resources": "patient-resources",
       "/contact-us": "contact-us",
       "/book-appointment": "book-appointment",
+      "/foot-diabetics-treatment/foot-ulcer":
+        "foot-diabetics-treatment/foot-ulcer",
     };
 
     setCurrentPage(pathToPageMap[location.pathname] || "home");
@@ -64,7 +68,8 @@ function App({ initialPage = "home" }: AppProps) {
       <>
         <Hero setCurrentPage={setCurrentPage} />
         <About />
-        <Services setCurrentPage={setCurrentPage} />
+        {/* <Services setCurrentPage={setCurrentPage} /> */}
+        <PremiumServices/>
         <SymptomsSection />
         <Approach />
         <ConsultationForm />
@@ -85,6 +90,7 @@ function App({ initialPage = "home" }: AppProps) {
     "patient-resources": () => <PatientResourcesPage />,
     "contact-us": () => <ContactUsPage />,
     "book-appointment": () => <AppointmentBookingPage />,
+    "foot-diabetics-treatment/foot-ulcer": () => <FootUlcerCarePage />,
   };
 
   const renderPage = () => {
@@ -111,6 +117,8 @@ function App({ initialPage = "home" }: AppProps) {
       "patient-resources": "/patient-resources",
       "contact-us": "/contact-us",
       "book-appointment": "/book-appointment",
+      "foot-diabetics-treatment/foot-ulcer":
+        "/foot-diabetics-treatment/foot-ulcer",
     };
 
     // Navigate to the corresponding route
