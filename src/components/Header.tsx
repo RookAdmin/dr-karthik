@@ -8,6 +8,7 @@ import {
   Stethoscope,
   Sun,
   ShieldCheck,
+  Home,
 } from "lucide-react";
 
 interface HeaderProps {
@@ -92,6 +93,11 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
       name: "Diabetes Management",
       page: "general-services/diabetes-management",
       icon: ShieldCheck,
+    },
+    {
+      name: "Home Treatment",
+      page: "general-services/home-treatment",
+      icon: Home,
     },
   ];
 
@@ -206,7 +212,11 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
 
           {/* Mobile Menu Toggle */}
           <button onClick={toggleMenu} className="lg:hidden p-2">
-            {isMenuOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            {isMenuOpen ? (
+              <X className="h-6 w-6" />
+            ) : (
+              <Menu className="h-6 w-6" />
+            )}
           </button>
         </div>
 

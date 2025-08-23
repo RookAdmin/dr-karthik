@@ -9,12 +9,13 @@ import {
   CheckCircle,
   Stethoscope,
   Sun,
+  Home,
   ShieldCheck,
   AlertTriangle,
   Award,
 } from "lucide-react";
-import { useState } from "react";
-
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 const DiabetesManagementPage = () => {
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
@@ -25,34 +26,63 @@ const DiabetesManagementPage = () => {
     }
   };
 
+  // Refs for scroll animations
+  const heroRef = useRef(null);
+  const aboutRef = useRef(null);
+  const treatRef = useRef(null);
+  const servicesRef = useRef(null);
+  const whyChooseRef = useRef(null);
+  const serviceCardsRef = useRef(null);
+  const ctaRef = useRef(null);
 
-    // Service Cards for Carousel
-    const serviceCards = [
-      {
-        icon: Stethoscope,
-        title: "General Healthcare",
-        description: "Specialized treatment for diabetic foot wounds",
-        link: "general-services/general-healthcare",
+  // Scroll animation variants
+  const scrollVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        type: "tween",
+        ease: "easeOut",
       },
-      {
-        icon: Footprints,
-        title: "Podiatry Services",
-        description: "Targeted therapies to control and eliminate infections",
-        link: "general-services/podiatry",
-      },
-      {
-        icon: Sun,
-        title: "Skin Care",
-        description: "Relief from nerve pain and numbness in feet",
-        link: "general-services/skin-care",
-      },
-      {
-        icon: ShieldCheck,
-        title: "Diabetes Management",
-        description: "Corrective care for structural foot problems",
-        link: "general-services/diabetes-management",
-      },
-    ];
+    },
+  } as const;
+
+  // Service Cards for Carousel
+  const serviceCards = [
+    {
+      icon: Stethoscope,
+      title: "General Healthcare",
+      description: "Specialized treatment for diabetic foot wounds",
+      link: "general-services/general-healthcare",
+    },
+    {
+      icon: Footprints,
+      title: "Podiatry Services",
+      description: "Targeted therapies to control and eliminate infections",
+      link: "general-services/podiatry",
+    },
+    {
+      icon: Sun,
+      title: "Skin Care",
+      description: "Relief from nerve pain and numbness in feet",
+      link: "general-services/skin-care",
+    },
+    {
+      icon: ShieldCheck,
+      title: "Diabetes Management",
+      description: "Corrective care for structural foot problems",
+      link: "general-services/diabetes-management",
+    },
+    {
+      icon: Home,
+      title: "Home Treatment Care",
+      description: "Personalized medical care provided in the comfort of your home",
+      link: "general-services/home-treatment",
+    },
+
+  ];
 
   const conditions = [
     {
@@ -110,7 +140,14 @@ const DiabetesManagementPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className=" py-20 mx-20">
+      <motion.section
+        ref={heroRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20 mx-20"
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
@@ -200,82 +237,116 @@ const DiabetesManagementPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Diabetes Management */}
-  <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
-  <div className="container mx-auto px-4">
-    <div className="max-w-6xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-16 items-center">
-        {/* Content Column */}
-        <div className="space-y-8">
-          <div>
-            <span className="bg-teal-50 text-[#22578c] text-sm font-semibold px-1 py-2 rounded-full">
-              Understanding Diabetes Management
-            </span>
-          </div>
-          <h2 className="text-4xl font-bold text-gray-800 leading-tight">
-            A Holistic Approach to <br />
-            <span className="text-[#22578c]">Diabetes Care</span>
-          </h2>
-          <p className="text-lg text-gray-600 leading-relaxed">
-            Diabetes management is more than just monitoring blood sugar levels. It's a comprehensive approach that encompasses medication, lifestyle modifications, dietary changes, and regular medical supervision to ensure optimal health outcomes.
-          </p>
-          <div className="grid sm:grid-cols-2 gap-6">
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="text-3xl font-bold text-[#22578c] mb-2">
-                90%
+      <motion.section
+        ref={aboutRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-24 bg-gradient-to-br from-gray-50 to-white"
+      >
+        <div className="container mx-auto px-4">
+          <div className="max-w-6xl mx-auto">
+            <div className="grid lg:grid-cols-2 gap-16 items-center">
+              {/* Content Column */}
+              <div className="space-y-8">
+                <div>
+                  <span className="bg-teal-50 text-[#22578c] text-sm font-semibold px-1 py-2 rounded-full">
+                    Understanding Diabetes Management
+                  </span>
+                </div>
+                <h2 className="text-4xl font-bold text-gray-800 leading-tight">
+                  A Holistic Approach to <br />
+                  <span className="text-[#22578c]">Diabetes Care</span>
+                </h2>
+                <p className="text-lg text-gray-600 leading-relaxed">
+                  Diabetes management is more than just monitoring blood sugar
+                  levels. It's a comprehensive approach that encompasses
+                  medication, lifestyle modifications, dietary changes, and
+                  regular medical supervision to ensure optimal health outcomes.
+                </p>
+                <div className="grid sm:grid-cols-2 gap-6">
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div className="text-3xl font-bold text-[#22578c] mb-2">
+                      90%
+                    </div>
+                    <p className="text-gray-600">
+                      of diabetes cases can be effectively managed with proper
+                      care and lifestyle changes
+                    </p>
+                  </div>
+                  <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <div className="text-3xl font-bold text-[#22578c] mb-2">
+                      11+
+                    </div>
+                    <p className="text-gray-600">
+                      years of experience in helping patients achieve better
+                      glycemic control
+                    </p>
+                  </div>
+                </div>
               </div>
-              <p className="text-gray-600">
-                of diabetes cases can be effectively managed with proper care and lifestyle changes
-              </p>
-            </div>
-            <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-              <div className="text-3xl font-bold text-[#22578c] mb-2">
-                11+
+              {/* Image Column */}
+              <div className="relative flex justify-center items-center">
+                <div className="bg-white rounded-3xl shadow-lg p-1 w-full">
+                  <img
+                    src="/diabetics.jpg"
+                    alt="Doctor explaining diabetes management"
+                    className="w-full rounded-2xl object-cover h-[500px]"
+                  />
+                </div>
+                {/* Overlay Card */}
+                <div className="absolute -bottom-1 -left-8 bg-white p-6 rounded-2xl shadow-lg max-w-[280px]">
+                  <div className="flex items-center space-x-4 mb-4">
+                    <div className="bg-teal-100 p-3 rounded-xl">
+                      {/* Replace with actual icon if using an icon library */}
+                      <svg
+                        className="h-6 w-6 text-teal-600"
+                        fill="none"
+                        stroke="currentColor"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          cx="12"
+                          cy="12"
+                          r="8"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                        />
+                        <path
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          d="M8 12l2 2 4-4"
+                        />
+                      </svg>
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-800">
+                      Personalized Care
+                    </h3>
+                  </div>
+                  <p className="text-gray-600">
+                    Every patient receives a customized treatment plan tailored
+                    to their specific needs and lifestyle
+                  </p>
+                </div>
               </div>
-              <p className="text-gray-600">
-                years of experience in helping patients achieve better glycemic control
-              </p>
             </div>
           </div>
         </div>
-        {/* Image Column */}
-        <div className="relative flex justify-center items-center">
-          <div className="bg-white rounded-3xl shadow-lg p-1 w-full">
-            <img
-              src="/diabetics.jpg"
-              alt="Doctor explaining diabetes management"
-              className="w-full rounded-2xl object-cover h-[500px]"
-            />
-          </div>
-          {/* Overlay Card */}
-          <div className="absolute -bottom-1 -left-8 bg-white p-6 rounded-2xl shadow-lg max-w-[280px]">
-            <div className="flex items-center space-x-4 mb-4">
-              <div className="bg-teal-100 p-3 rounded-xl">
-                {/* Replace with actual icon if using an icon library */}
-                <svg className="h-6 w-6 text-teal-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <circle cx="12" cy="12" r="8" stroke="currentColor" strokeWidth="2" />
-                  <path stroke="currentColor" strokeWidth="2" d="M8 12l2 2 4-4" />
-                </svg>
-              </div>
-              <h3 className="text-xl font-bold text-gray-800">
-                Personalized Care
-              </h3>
-            </div>
-            <p className="text-gray-600">
-              Every patient receives a customized treatment plan tailored to their specific needs and lifestyle
-            </p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
+      </motion.section>
 
       {/* What We Treat */}
-      <section className="py-20">
+      <motion.section
+        ref={treatRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -311,15 +382,23 @@ const DiabetesManagementPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Services */}
-      <section className="py-20 bg-gray-50">
+      <motion.section
+        ref={servicesRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20 bg-gray-50"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                Our <span className="text-[#22578c]">Diabetes Services</span> Include
+                Our <span className="text-[#22578c]">Diabetes Services</span>{" "}
+                Include
               </h2>
               <p className="text-xl text-gray-600">
                 Comprehensive care designed to help you achieve optimal blood
@@ -341,10 +420,17 @@ const DiabetesManagementPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us */}
-      <section className="py-20">
+      <motion.section
+        ref={whyChooseRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -377,11 +463,17 @@ const DiabetesManagementPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-   {/* Service Cards Carousel */}
-
-   <section className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white">
+      {/* Service Cards Carousel */}
+      <motion.section
+        ref={serviceCardsRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -475,47 +567,52 @@ const DiabetesManagementPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-      
       {/* Call to Action */}
-   <section className="py-20" style={{ background: "#f7f9fa" }}>
-  <div className="container mx-auto px-4">
-    <div className="max-w-4xl mx-auto text-center">
-      <h2
-        className="text-4xl font-bold mb-6"
-        style={{ color: "#22578c" }}
+      <motion.section
+        ref={ctaRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+        style={{ background: "#f7f9fa" }}
       >
-        Ready to Manage Your Diabetes Effectively?
-      </h2>
-      <p
-        className="text-xl mb-8 leading-relaxed opacity-90"
-        style={{ color: "#000000" }}
-      >
-        Don't let diabetes control your life. Take the first step towards
-        better health with our expert diabetes management program.
-      </p>
-          <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
-  <button
-    onClick={scrollToConsultation}
-    className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 group"
-  >
-    <Calendar className="h-5 w-5" />
-    <span>Book Diabetes Consultation</span>
-    <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
-  </button>
-  <a
-    href="tel:+1234567890"
-    className="border-2 border-[#22578c] text-[#22578c] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#22578c] hover:text-white transition-all duration-300 text-center"
-  >
-    Call for Urgent Care
-  </a>
-</div>
-
-    </div>
-  </div>
-</section>
-
+        <div className="container mx-auto px-4">
+          <div className="max-w-4xl mx-auto text-center">
+            <h2
+              className="text-4xl font-bold mb-6"
+              style={{ color: "#22578c" }}
+            >
+              Ready to Manage Your Diabetes Effectively?
+            </h2>
+            <p
+              className="text-xl mb-8 leading-relaxed opacity-90"
+              style={{ color: "#000000" }}
+            >
+              Don't let diabetes control your life. Take the first step towards
+              better health with our expert diabetes management program.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
+              <button
+                onClick={scrollToConsultation}
+                className="bg-[#22578c] text-white px-8 py-4 rounded-full text-lg font-semibold flex items-center justify-center space-x-2 group"
+              >
+                <Calendar className="h-5 w-5" />
+                <span>Book Diabetes Consultation</span>
+                <ArrowRight className="h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <a
+                href="tel:+1234567890"
+                className="border-2 border-[#22578c] text-[#22578c] px-8 py-4 rounded-full text-lg font-semibold hover:bg-[#22578c] hover:text-white transition-all duration-300 text-center"
+              >
+                Call for Urgent Care
+              </a>
+            </div>
+          </div>
+        </div>
+      </motion.section>
     </div>
   );
 };

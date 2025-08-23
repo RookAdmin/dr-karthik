@@ -136,20 +136,12 @@ const Footer: React.FC<FooterProps> = ({ currentPage, setCurrentPage }) => {
                 <Clock className="h-4 w-4 text-[#aad6ff]" />
                 <div className="text-sm">
                   <div className="flex justify-between">
-                    <span className="text-white/80">Mon - Fri</span> &nbsp;
+                    <span className="text-white/80">Mon - Sat</span> &nbsp;
                     <span className="text-white"> 9:00 AM - 6:00 PM</span>
                   </div>
                 </div>
               </div>
-              <div className="flex items-center space-x-2">
-                <Clock className="h-4 w-4 text-[#aad6ff]" />
-                <div className="text-sm">
-                  <div className="flex justify-between">
-                    <span className="text-white/80">Saturday</span> &nbsp;
-                    <span className="text-white"> 9:00 AM - 2:00 PM</span>
-                  </div>
-                </div>
-              </div>
+
               <div className="flex items-center space-x-2">
                 <Clock className="h-4 w-4 text-[#aad6ff]" />
                 <div className="text-sm">

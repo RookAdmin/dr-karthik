@@ -11,9 +11,12 @@ import {
   Award,
   Stethoscope,
   Activity,
+  Home,
 } from "lucide-react";
 
 import { useState } from "react";
+import { motion } from "framer-motion";
+import { useRef } from "react";
 
 const PodiatryPage = () => {
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
@@ -23,6 +26,29 @@ const PodiatryPage = () => {
       element.scrollIntoView({ behavior: "smooth" });
     }
   };
+
+  // Refs for scroll animations
+  const heroRef = useRef(null);
+  const aboutRef = useRef(null);
+  const treatRef = useRef(null);
+  const servicesRef = useRef(null);
+  const whyChooseRef = useRef(null);
+  const serviceCardsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Scroll animation variants
+  const scrollVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        type: "tween",
+        ease: "easeOut",
+      },
+    },
+  } as const;
 
   // Service Cards for Carousel
   const serviceCards = [
@@ -49,6 +75,12 @@ const PodiatryPage = () => {
       title: "Diabetes Management",
       description: "Corrective care for structural foot problems",
       link: "general-services/diabetes-management",
+    },
+    {
+      icon: Home,
+      title: "Home Treatment Care",
+      description: "Personalized medical care provided in the comfort of your home",
+      link: "general-services/home-treatment",
     },
   ];
 
@@ -107,7 +139,14 @@ const PodiatryPage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 mx-20">
+      <motion.section
+        ref={heroRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20 mx-20"
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
@@ -197,10 +236,17 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Podiatry Care */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+      <motion.section
+        ref={aboutRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-24 bg-gradient-to-br from-gray-50 to-white"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -289,10 +335,17 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* What We Treat */}
-      <section className="py-20">
+      <motion.section
+        ref={treatRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -328,10 +381,17 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Services */}
-      <section className="py-20 bg-gray-50">
+      <motion.section
+        ref={servicesRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20 bg-gray-50"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
@@ -359,10 +419,17 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us */}
-      <section className="py-20">
+      <motion.section
+        ref={whyChooseRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -395,11 +462,17 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Service Cards Carousel */}
-
-      <section className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white">
+      <motion.section
+        ref={serviceCardsRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -493,10 +566,18 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Call to Action */}
-      <section className="py-20" style={{ background: "#f7f9fa" }}>
+      <motion.section
+        ref={ctaRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+        style={{ background: "#f7f9fa" }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h2
@@ -531,7 +612,7 @@ const PodiatryPage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

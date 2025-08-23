@@ -12,10 +12,11 @@ import {
   AlertCircle,
   Stethoscope,
   Award,
+  Home,
 } from "lucide-react";
 
-import { useState } from "react";
-
+import { useState, useRef } from "react";
+import { motion } from "framer-motion";
 
 const SkinCarePage = () => {
   const [activeServiceIndex, setActiveServiceIndex] = useState(0);
@@ -26,8 +27,31 @@ const SkinCarePage = () => {
     }
   };
 
-   // Service Cards for Carousel
-   const serviceCards = [
+  // Refs for scroll animations
+  const heroRef = useRef(null);
+  const aboutRef = useRef(null);
+  const treatRef = useRef(null);
+  const servicesRef = useRef(null);
+  const whyChooseRef = useRef(null);
+  const serviceCardsRef = useRef(null);
+  const ctaRef = useRef(null);
+
+  // Scroll animation variants
+  const scrollVariants = {
+    hidden: { opacity: 0, y: 50 },
+    visible: {
+      opacity: 1,
+      y: 0,
+      transition: {
+        duration: 0.6,
+        type: "tween",
+        ease: "easeOut",
+      },
+    },
+  } as const;
+
+  // Service Cards for Carousel
+  const serviceCards = [
     {
       icon: Stethoscope,
       title: "General Healthcare",
@@ -51,6 +75,12 @@ const SkinCarePage = () => {
       title: "Diabetes Management",
       description: "Corrective care for structural foot problems",
       link: "general-services/diabetes-management",
+    },
+    {
+      icon: Home,
+      title: "Home Treatment Care",
+      description: "Personalized medical care provided in the comfort of your home",
+      link: "general-services/home-treatment",
     },
   ];
 
@@ -110,15 +140,24 @@ const SkinCarePage = () => {
   return (
     <div className="min-h-screen bg-white">
       {/* Hero Section */}
-      <section className="py-20 mx-20">
+      <motion.section
+        ref={heroRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20 mx-20"
+      >
         <div className="container mx-auto px-4">
           <div className="flex flex-col lg:flex-row items-center justify-between">
             <div className="lg:w-1/2 mb-12 lg:mb-0">
               <h1 className="text-4xl lg:text-6xl font-bold text-gray-800 leading-tight mb-6">
-                Expert <span className="text-[#22578c]">Skin Care</span> Treatments & Solutions
+                Expert <span className="text-[#22578c]">Skin Care</span>{" "}
+                Treatments & Solutions
               </h1>
               <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                Reveal your best skin with personalized care and advanced treatments designed for lasting results.
+                Reveal your best skin with personalized care and advanced
+                treatments designed for lasting results.
               </p>
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
                 <button
@@ -197,10 +236,17 @@ const SkinCarePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* About Skin Care */}
-      <section className="py-24 bg-gradient-to-br from-gray-50 to-white">
+      <motion.section
+        ref={aboutRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-24 bg-gradient-to-br from-gray-50 to-white"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="grid lg:grid-cols-2 gap-16 items-center">
@@ -215,17 +261,24 @@ const SkinCarePage = () => {
                   <span className="text-[#22578c]">Skin Health</span>
                 </h2>
                 <p className="text-lg text-gray-600 leading-relaxed">
-                  Skin care includes treatments, lifestyle and nutrition guidance, and medical supervision to enhance your skin’s natural beauty and health.
+                  Skin care includes treatments, lifestyle and nutrition
+                  guidance, and medical supervision to enhance your skin’s
+                  natural beauty and health.
                 </p>
                 <div className="grid sm:grid-cols-2 gap-6">
                   <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div className="text-3xl font-bold text-[#22578c] mb-2">95%</div>
+                    <div className="text-3xl font-bold text-[#22578c] mb-2">
+                      95%
+                    </div>
                     <p className="text-gray-600">
-                      of skin concerns can be improved with professional care and customized treatments
+                      of skin concerns can be improved with professional care
+                      and customized treatments
                     </p>
                   </div>
                   <div className="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
-                    <div className="text-3xl font-bold text-[#22578c] mb-2">10+</div>
+                    <div className="text-3xl font-bold text-[#22578c] mb-2">
+                      10+
+                    </div>
                     <p className="text-gray-600">
                       years of experience helping clients achieve vibrant skin
                     </p>
@@ -250,17 +303,25 @@ const SkinCarePage = () => {
                     </h3>
                   </div>
                   <p className="text-gray-600">
-                    We customize every treatment plan to your unique skin type and goals for optimal results.
+                    We customize every treatment plan to your unique skin type
+                    and goals for optimal results.
                   </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* What We Treat */}
-      <section className="py-20">
+      <motion.section
+        ref={treatRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -268,7 +329,8 @@ const SkinCarePage = () => {
                 What <span className="text-[#22578c]"> We Treat</span>
               </h2>
               <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-                Comprehensive skin care addressing all your concerns with effective treatments
+                Comprehensive skin care addressing all your concerns with
+                effective treatments
               </p>
             </div>
 
@@ -295,18 +357,27 @@ const SkinCarePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Our Services */}
-      <section className="py-20 bg-gray-50">
+      <motion.section
+        ref={servicesRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20 bg-gray-50"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto">
             <div className="text-center mb-16">
               <h2 className="text-4xl font-bold text-gray-800 mb-4">
-                Our <span className="text-[#22578c]">Skin Care Services</span> Include
+                Our <span className="text-[#22578c]">Skin Care Services</span>{" "}
+                Include
               </h2>
               <p className="text-xl text-gray-600">
-                Extensive range of treatments and care plans for healthy, glowing skin
+                Extensive range of treatments and care plans for healthy,
+                glowing skin
               </p>
             </div>
 
@@ -324,10 +395,17 @@ const SkinCarePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Why Choose Us */}
-      <section className="py-20">
+      <motion.section
+        ref={whyChooseRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-16">
@@ -335,7 +413,8 @@ const SkinCarePage = () => {
                 Why Choose Our <span className="text-[#22578c]">Skin Care</span>
               </h2>
               <p className="text-xl text-gray-600">
-                Experience personalized, expert care focused on your skin health and confidence
+                Experience personalized, expert care focused on your skin health
+                and confidence
               </p>
             </div>
 
@@ -359,11 +438,17 @@ const SkinCarePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
-        {/* Service Cards Carousel */}
-
-        <section className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white">
+      {/* Service Cards Carousel */}
+      <motion.section
+        ref={serviceCardsRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-24 bg-gradient-to-br from-[#f4f7fa] to-white"
+      >
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-800 mb-4">
@@ -457,17 +542,32 @@ const SkinCarePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
 
       {/* Call to Action */}
-      <section className="py-20" style={{ background: "#f7f9fa" }}>
+      <motion.section
+        ref={ctaRef}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.1 }}
+        variants={scrollVariants}
+        className="py-20"
+        style={{ background: "#f7f9fa" }}
+      >
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h2 className="text-4xl font-bold mb-6" style={{ color: "#22578c" }}>
+            <h2
+              className="text-4xl font-bold mb-6"
+              style={{ color: "#22578c" }}
+            >
               Ready to Enhance Your Skin’s Health?
             </h2>
-            <p className="text-xl mb-8 leading-relaxed opacity-90" style={{ color: "#000000" }}>
-              Don’t wait to reveal glowing, healthy skin. Book your personalized consultation today.
+            <p
+              className="text-xl mb-8 leading-relaxed opacity-90"
+              style={{ color: "#000000" }}
+            >
+              Don’t wait to reveal glowing, healthy skin. Book your personalized
+              consultation today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 mb-12 justify-center items-center">
               <button
@@ -487,7 +587,7 @@ const SkinCarePage = () => {
             </div>
           </div>
         </div>
-      </section>
+      </motion.section>
     </div>
   );
 };

@@ -18,6 +18,7 @@ import ChronicDiseaseManagementPage from "./pages/ChronicDiseaseManagementPage";
 import WoundCarePage from "./pages/WoundCarePage";
 import PreventiveCarePage from "./pages/PreventiveCarePage";
 import FootUlcerCarePage from "./pages/FootUlcer";
+import HomeTreatmentPage from "./pages/HomeTreatmentPage";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
@@ -46,8 +47,16 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           element={<App initialPage="general-services/home-visit-care" />}
         />
         <Route
+          path="/general-services/home-treatment"
+          element={<App initialPage="general-services/home-treatment" />}
+        />
+        <Route
           path="/general-services/wound-care"
           element={<App initialPage="general-services/wound-care" />}
+        />
+        <Route
+          path="/general-services/preventive-care"
+          element={<App initialPage="general-services/preventive-care" />}
         />
         <Route
           path="/patient-resources"
@@ -63,10 +72,6 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
           element={
             <App initialPage="general-services/chronic-disease-management" />
           }
-        />
-        <Route
-          path="/general-services/preventive-care"
-          element={<App initialPage="general-services/preventive-care" />}
         />
         <Route
           path="/foot-diabetics-treatment/foot-ulcer"

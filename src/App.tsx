@@ -23,6 +23,7 @@ import ChronicDiseaseManagementPage from "./pages/ChronicDiseaseManagementPage";
 import WoundCarePage from "./pages/WoundCarePage";
 import PreventiveCarePage from "./pages/PreventiveCarePage";
 import FootUlcerCarePage from "./pages/FootUlcer";
+import HomeTreatmentPage from "./pages/HomeTreatmentPage";
 
 interface AppProps {
   initialPage?: string;
@@ -49,6 +50,7 @@ function App({ initialPage = "home" }: AppProps) {
       "/general-services/general-healthcare":
         "general-services/general-healthcare",
       "/general-services/home-visit-care": "general-services/home-visit-care",
+      "/general-services/home-treatment": "general-services/home-treatment",
       "/patient-resources": "patient-resources",
       "/contact-us": "contact-us",
       "/book-appointment": "book-appointment",
@@ -69,7 +71,7 @@ function App({ initialPage = "home" }: AppProps) {
         <Hero setCurrentPage={setCurrentPage} />
         <About />
         {/* <Services setCurrentPage={setCurrentPage} /> */}
-        <PremiumServices/>
+        <PremiumServices />
         <SymptomsSection />
         <Approach />
         <ConsultationForm />
@@ -87,6 +89,7 @@ function App({ initialPage = "home" }: AppProps) {
     "general-services/skin-care": () => <SkinCarePage />,
     "general-services/general-healthcare": () => <GeneralHealthcarePage />,
     "general-services/home-visit-care": () => <HomeVisitCarePage />,
+    "general-services/home-treatment": () => <HomeTreatmentPage />,
     "patient-resources": () => <PatientResourcesPage />,
     "contact-us": () => <ContactUsPage />,
     "book-appointment": () => <AppointmentBookingPage />,
@@ -114,6 +117,7 @@ function App({ initialPage = "home" }: AppProps) {
       "general-services/general-healthcare":
         "/general-services/general-healthcare",
       "general-services/home-visit-care": "/general-services/home-visit-care",
+      "general-services/home-treatment": "/general-services/home-treatment",
       "patient-resources": "/patient-resources",
       "contact-us": "/contact-us",
       "book-appointment": "/book-appointment",
