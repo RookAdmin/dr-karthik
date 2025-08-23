@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Calendar,
   Phone,
@@ -10,7 +10,7 @@ import {
   MapPin,
 } from "lucide-react";
 
-const ConsultationForm = () => {
+const ConsultationForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: "",
     phone: "",
@@ -63,7 +63,7 @@ const ConsultationForm = () => {
               <h3 className="text-3xl font-light text-[#22578c] mb-6">
                 Request Submitted
               </h3>
-              <p className="text-slate-600 text-lg leading-relaxed mb-8">
+              <p className="text-gray-600 text-lg leading-relaxed mb-8">
                 Thank you for choosing our care. We'll contact you within 24
                 hours to confirm your consultation.
               </p>
@@ -93,11 +93,11 @@ const ConsultationForm = () => {
           <div className="inline-flex items-center justify-center p-3 bg-gradient-to-r from-[#22578c] to-[#1e4a73] rounded-2xl mb-6">
             <Calendar className="h-6 w-6 text-white" />
           </div>
-            <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
-         Schedule Your <span className="text-[#22578c]">Consultation</span><br />
-
+          <h2 className="text-4xl lg:text-5xl font-bold text-gray-900 mb-4">
+            Schedule Your <span className="text-[#22578c]">Consultation</span>
+            <br />
           </h2>
-          <p className="text-xl text-slate-600 leading-relaxed">
+          <p className="text-lg text-gray-600 leading-relaxed">
             Experience personalized healthcare with Dr. Karthick Palanisamy.
             Book your consultation and take the first step towards better
             health.
@@ -110,7 +110,7 @@ const ConsultationForm = () => {
             <div className="lg:col-span-2 space-y-8">
               {/* Contact Card */}
               <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
-                <h3 className="text-2xl font-light text-[#22578c] mb-8">
+                <h3 className="text-2xl font-bold text-[#22578c] mb-8">
                   Get in Touch
                 </h3>
 
@@ -123,10 +123,10 @@ const ConsultationForm = () => {
                       <div>
                         <p className="font-medium text-slate-800 mb-1">Phone</p>
                         <a
-                          href="tel:+1234567890"
+                          href="tel:+91 7871122232"
                           className="text-[#5e8f1e] font-semibold hover:underline"
                         >
-                          +1 (234) 567-8900
+                          +91 7871122232
                         </a>
                       </div>
                     </div>
@@ -159,7 +159,7 @@ const ConsultationForm = () => {
                           WhatsApp
                         </p>
                         <a
-                          href="https://wa.me/1234567890"
+                          href="https://wa.me/917871122232"
                           className="text-[#5e8f1e] font-semibold hover:underline"
                         >
                           Chat with us
@@ -172,12 +172,9 @@ const ConsultationForm = () => {
 
               {/* Clinic Hours Card */}
               <div className="bg-white rounded-3xl p-8 shadow-xl border border-slate-100">
-                <div className="flex items-center space-x-3 mb-6">
-                  <Clock className="h-6 w-6 text-[#5e8f1e]" />
-                  <h3 className="text-xl font-light text-[#22578c]">
-                    Clinic Hours
-                  </h3>
-                </div>
+                <h3 className="text-2xl font-bold text-[#22578c] mb-6">
+                  Clinic Hours
+                </h3>
 
                 <div className="space-y-4">
                   {[
@@ -237,19 +234,19 @@ const ConsultationForm = () => {
             <div className="lg:col-span-3">
               <div className="bg-white rounded-3xl p-10 shadow-2xl border border-slate-100">
                 <div className="mb-8">
-                  <h3 className="text-2xl font-light text-[#22578c] mb-2">
+                  <h3 className="text-2xl font-bold.0205+3+1.
+                  0++9 text-[#22578c] mb-2">
                     Book Your Appointment
                   </h3>
-                  <p className="text-slate-600">
+                  <p className="text-gray-600">
                     Fill in your details and we'll get back to you shortly
                   </p>
                 </div>
-
                 <div className="space-y-8">
                   {/* Name and Phone */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 mb-3">
+                      <label className="block text-sm font-medium text-gray-700 mb-3">
                         Full Name *
                       </label>
                       <div className="relative">
@@ -267,7 +264,7 @@ const ConsultationForm = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 mb-3">
+                      <label className="block text-sm font-medium text-gray-700 mb-3">
                         Phone Number *
                       </label>
                       <div className="relative">
@@ -287,7 +284,7 @@ const ConsultationForm = () => {
 
                   {/* Email */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Email Address *
                     </label>
                     <div className="relative">
@@ -307,7 +304,7 @@ const ConsultationForm = () => {
                   {/* Date and Time */}
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 mb-3">
+                      <label className="block text-sm font-medium text-gray-700 mb-3">
                         Preferred Date
                       </label>
                       <div className="relative">
@@ -323,7 +320,7 @@ const ConsultationForm = () => {
                     </div>
 
                     <div className="space-y-2">
-                      <label className="block text-sm font-medium text-slate-700 mb-3">
+                      <label className="block text-sm font-medium text-gray-700 mb-3">
                         Preferred Time
                       </label>
                       <div className="relative">
@@ -349,7 +346,7 @@ const ConsultationForm = () => {
 
                   {/* Service */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Service Needed
                     </label>
                     <select
@@ -369,7 +366,7 @@ const ConsultationForm = () => {
 
                   {/* Message */}
                   <div className="space-y-2">
-                    <label className="block text-sm font-medium text-slate-700 mb-3">
+                    <label className="block text-sm font-medium text-gray-700 mb-3">
                       Additional Message
                     </label>
                     <textarea
@@ -395,20 +392,6 @@ const ConsultationForm = () => {
                     <span>Schedule Your Consultation</span>
                   </button>
                 </div>
-
-                {/* Trust Badges */}
-                {/* <div className="mt-8 pt-8 border-t border-slate-100">
-                  <div className="flex items-center justify-center space-x-8 text-sm text-slate-600">
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-[#5e8f1e] rounded-full"></div>
-                      <span>Secure & Confidential</span>
-                    </div>
-                    <div className="flex items-center space-x-2">
-                      <div className="w-2 h-2 bg-[#22578c] rounded-full"></div>
-                      <span>24h Response Time</span>
-                    </div>
-                  </div>
-                </div> */}
               </div>
             </div>
           </div>
