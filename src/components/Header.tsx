@@ -26,7 +26,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
   const toggleServicesDropdown = () =>
     setIsServicesDropdownOpen(!isServicesDropdownOpen);
 
-  // Close services dropdown on outside click
+  // Close desktop services dropdown on outside click
   useEffect(() => {
     function handleClickOutside(event: MouseEvent) {
       if (
@@ -36,34 +36,10 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         setIsServicesDropdownOpen(false);
       }
     }
-    if (isServicesDropdownOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    } else {
-      document.removeEventListener("mousedown", handleClickOutside);
-    }
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
     };
-  }, [isServicesDropdownOpen]);
-
-  const scrollToSection = (sectionId: string) => {
-    if (currentPage !== "home") {
-      setCurrentPage("home");
-      setTimeout(() => {
-        const element = document.getElementById(sectionId);
-        if (element) {
-          element.scrollIntoView({ behavior: "smooth" });
-        }
-      }, 100);
-    } else {
-      const element = document.getElementById(sectionId);
-      if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
-      }
-    }
-    setIsMenuOpen(false);
-    setIsServicesDropdownOpen(false);
-  };
+  }, []);
 
   const navigateToPage = (page: string) => {
     setCurrentPage(page);
@@ -72,7 +48,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
-  // 4 Flat Services with Icons
+  // Services List
   const services = [
     {
       name: "General Healthcare",
@@ -138,7 +114,7 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 About Dr. Karthick
               </button>
 
-              {/* Services Dropdown with click toggle */}
+              {/* Services Dropdown (Desktop) */}
               <div className="relative" ref={servicesDropdownRef}>
                 <button
                   onClick={toggleServicesDropdown}
@@ -223,7 +199,8 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
         {/* Mobile Navigation */}
         {isMenuOpen && (
           <nav className="lg:hidden mt-4 py-4 border-t border-gray-200">
-            <div className="flex flex-col space-y-4">
+            <div className="flex flex-col space-y-3">
+              {/* Top-level nav items */}
               <button
                 onClick={() => navigateToPage("home")}
                 className={`transition-colors text-left ${
@@ -246,36 +223,42 @@ const Header: React.FC<HeaderProps> = ({ currentPage, setCurrentPage }) => {
                 About Dr. Karthick
               </button>
 
-              {/* Mobile Services */}
-              <div className="space-y-2">
-                <div className="font-semibold text-gray-800">Services</div>
-
+              {/* Mobile Services Dropdown */}
+              <div>
                 <button
-                  onClick={() => scrollToSection("services")}
-                  className="block w-full text-left flex items-center gap-2 text-gray-600 hover:text-blue-600 transition-colors text-sm pl-4 py-2 border-l-2 border-blue-200"
+                  onClick={toggleServicesDropdown}
+                  className="flex items-center justify-between w-full text-left text-gray-700 hover:text-blue-600 transition-colors"
                 >
-                  <ChevronDown className="h-4 w-4 rotate-90 text-blue-600" />
-                  All Services Overview
+                  <span className="font-medium">Services</span>
+                  <ChevronDown
+                    className={`h-4 w-4 transform transition-transform ${
+                      isServicesDropdownOpen ? "rotate-180" : ""
+                    }`}
+                  />
                 </button>
 
-                {/* List of Services with Icons */}
-                {services.map((service, index) => {
-                  const Icon = service.icon;
-                  return (
-                    <button
-                      key={index}
-                      onClick={() => navigateToPage(service.page)}
-                      className={`flex items-center gap-2 w-full transition-colors text-left text-sm py-2 pl-4 border-l-2 ${
-                        currentPage === service.page
-                          ? "text-blue-600 font-semibold border-blue-400"
-                          : "text-gray-600 hover:text-blue-600 border-transparent"
-                      }`}
-                    >
-                      <Icon className="h-4 w-4 text-blue-600 shrink-0" />
-                      {service.name}
-                    </button>
-                  );
-                })}
+                {/* Reveal services only when expanded */}
+                {isServicesDropdownOpen && (
+                  <div className="mt-2 flex flex-col space-y-2 pl-4">
+                    {services.map((service, index) => {
+                      const Icon = service.icon;
+                      return (
+                        <button
+                          key={index}
+                          onClick={() => navigateToPage(service.page)}
+                          className={`flex items-center gap-2 text-left text-sm transition-colors py-2 ${
+                            currentPage === service.page
+                              ? "text-blue-600 font-semibold"
+                              : "text-gray-600 hover:text-blue-600"
+                          }`}
+                        >
+                          <Icon className="h-4 w-4 text-blue-600 shrink-0" />
+                          {service.name}
+                        </button>
+                      );
+                    })}
+                  </div>
+                )}
               </div>
 
               <button

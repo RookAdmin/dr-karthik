@@ -190,7 +190,7 @@ const Hero: React.FC<HeroProps> = ({ setCurrentPage }) => {
               </h1>
 
               <p className="text-lg sm:text-xl text-gray-600 leading-relaxed max-w-xl mx-auto lg:mx-0 font-light">
-                Personalized care for diabetes and foot complications—because{" "}
+                Personalized care for diabetes and foot complications because{" "} <br />
                 <span className="text-gray-900 font-medium">
                   Early action leads to a healthier tomorrow.
                 </span>

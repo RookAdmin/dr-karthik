@@ -289,7 +289,7 @@ const DiabeticsFootClinicAbout: React.FC = () => {
             {/* Secondary Image */}
             <div className="absolute bottom-4 right-4 w-32 h-32 rounded-full overflow-hidden shadow-xl border-4 border-white">
               <img
-                src="https://images.unsplash.com/photo-1612349317150-e413f6a5b16d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80"
+                src="/home-about-1.webp"
                 alt="Doctor consultation"
                 className="w-full h-full object-cover"
               />

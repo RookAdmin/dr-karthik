@@ -24,6 +24,7 @@ import WoundCarePage from "./pages/WoundCarePage";
 import PreventiveCarePage from "./pages/PreventiveCarePage";
 import FootUlcerCarePage from "./pages/FootUlcer";
 import HomeTreatmentPage from "./pages/HomeTreatmentPage";
+import ScrollToTopButton from "./components/ScrollToTopButton";
 
 interface AppProps {
   initialPage?: string;
@@ -138,6 +139,7 @@ function App({ initialPage = "home" }: AppProps) {
       <Header currentPage={currentPage} setCurrentPage={customSetCurrentPage} />
       {renderPage()}
       <Footer currentPage={currentPage} setCurrentPage={customSetCurrentPage} />
+      <ScrollToTopButton />
     </div>
   );
 }

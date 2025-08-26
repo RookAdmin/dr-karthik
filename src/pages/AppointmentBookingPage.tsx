@@ -109,7 +109,7 @@ const AppointmentBookingPage = () => {
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center mb-12">
             <h1 className="text-4xl lg:text-5xl font-bold text-gray-800 mb-6">
-              Book an <span className="text-teal-600">Appointment</span>
+              Book an <span className="text-[#22578c]">Appointment</span>
             </h1>
             <p className="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto">
               Take the first step towards better health. Use the form below to schedule a consultation with Dr. Karthick Palanisamy. We'll get in touch to confirm your appointment shortly.
@@ -119,22 +119,22 @@ const AppointmentBookingPage = () => {
           {/* Quick Stats */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto mb-16">
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-              <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Calendar className="h-8 w-8 text-teal-600" />
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Calendar className="h-8 w-8 text-[#22578c]" />
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Same Day</h3>
               <p className="text-gray-600 text-sm">Appointments Available</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
               <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Clock className="h-8 w-8 text-blue-600" />
+                <Clock className="h-8 w-8 text-[#22578c]" />
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Quick Response</h3>
               <p className="text-gray-600 text-sm">Within 2-4 Hours</p>
             </div>
             <div className="bg-white rounded-2xl p-6 shadow-lg text-center">
-              <div className="bg-green-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                <Stethoscope className="h-8 w-8 text-green-600" />
+              <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                <Stethoscope className="h-8 w-8 text-[#22578c]" />
               </div>
               <h3 className="font-bold text-gray-800 mb-2">Expert Care</h3>
               <p className="text-gray-600 text-sm">11+ Years Experience</p>
@@ -145,8 +145,8 @@ const AppointmentBookingPage = () => {
           <div className="max-w-3xl mx-auto">
             <div className="bg-white rounded-3xl p-8 lg:p-12 shadow-xl">
               <div className="text-center mb-8">
-                <div className="bg-teal-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
-                  <Calendar className="h-8 w-8 text-teal-600" />
+                <div className="bg-blue-100 w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
+                  <Calendar className="h-8 w-8 text-[#22578c]" />
                 </div>
                 <h2 className="text-2xl font-bold text-gray-800 mb-2">Schedule Your Consultation</h2>
                 <p className="text-gray-600">Fill out the form below and we'll confirm your appointment</p>
@@ -252,9 +252,9 @@ const AppointmentBookingPage = () => {
                       return (
                         <label
                           key={type.value}
-                          className={`relative cursor-pointer rounded-lg border-2 p-4 text-center transition-all hover:border-teal-300 ${
+                          className={`relative cursor-pointer rounded-lg border-2 p-4 text-center transition-all hover:border-[#22578c] ${
                             formData.consultationType === type.value
-                              ? 'border-teal-500 bg-teal-50'
+                              ? 'border-[#22578c] bg-teal-50'
                               : 'border-gray-200 bg-white'
                           }`}
                         >
@@ -275,7 +275,7 @@ const AppointmentBookingPage = () => {
                             <IconComponent className={`h-6 w-6 ${
                               formData.consultationType === type.value
                                 ? 'text-teal-600'
-                                : 'text-gray-600'
+                                : 'text-[#22578c]'
                             }`} />
                           </div>
                           <p className={`font-semibold text-sm ${
@@ -311,7 +311,7 @@ const AppointmentBookingPage = () => {
                 <div className="text-center pt-6">
                   <button
                     type="submit"
-                    className="bg-teal-600 text-white py-4 px-8 rounded-full text-lg font-semibold hover:bg-teal-700 transition-all duration-300 flex items-center justify-center space-x-2 mx-auto group"
+                    className="bg-[#22578c] text-white py-4 px-8 rounded-full text-lg font-semibold transition-all duration-300 flex items-center justify-center space-x-2 mx-auto group"
                   >
                     <Calendar className="h-5 w-5" />
                     <span>Book Appointment</span>
@@ -333,13 +333,10 @@ const AppointmentBookingPage = () => {
                 <h3 className="text-xl font-bold text-gray-800 mb-4">Clinic Hours</h3>
                 <div className="space-y-3">
                   <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Monday - Friday</span>
+                    <span className="text-gray-600">Monday - Saturday</span>
                     <span className="font-semibold text-gray-800">9:00 AM - 6:00 PM</span>
                   </div>
-                  <div className="flex justify-between items-center">
-                    <span className="text-gray-600">Saturday</span>
-                    <span className="font-semibold text-gray-800">9:00 AM - 2:00 PM</span>
-                  </div>
+                 
                   <div className="flex justify-between items-center">
                     <span className="text-gray-600">Sunday</span>
                     <span className="font-semibold text-gray-800">Closed</span>
@@ -354,14 +351,14 @@ const AppointmentBookingPage = () => {
                 </p>
                 <div className="space-y-3">
                   <a 
-                    href="tel:+91-XXXXXXXXXX"
+                    href="tel:+91-7871122232"
                     className="flex items-center space-x-3 text-teal-600 hover:text-teal-700 transition-colors"
                   >
                     <Phone className="h-5 w-5" />
-                    <span className="font-semibold">+91-XXXXXXXXXX</span>
+                    <span className="font-semibold">+91-7871122232</span>
                   </a>
                   <a 
-                    href="https://wa.me/91XXXXXXXXXX"
+                    href="https://wa.me/917871122232"
                     className="flex items-center space-x-3 text-green-600 hover:text-green-700 transition-colors"
                   >
                     <MessageCircle className="h-5 w-5" />
